@@ -1,0 +1,10 @@
+.popup-edit__user-name {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    margin-top: 54px;
+    margin-bottom: 13px;
+    min-width: 358px;
+}

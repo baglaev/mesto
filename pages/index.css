@@ -29,6 +29,17 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__logo/footer__logo.css);
 
+@import url(../blocks/popup/popup.css);
+
+@import url(../blocks/popup-edit/popup-edits.css);
+@import url(../blocks/popup-edit/__title/popup-edit__title.css);
+@import url(../blocks/popup-edit/__user-name/popup-edit__user-name.css);
+@import url(../blocks/popup-edit/__line/popup-edit__line.css);
+@import url(../blocks/popup-edit/__user-occupation/popup-edit__user-occupation.css);
+@import url(../blocks/popup-edit/__button-save/popup-edit__button-save.css);
+@import url(../blocks/popup-edit/__button-close/popup-edit__button-close.css);
+
+
 * {
     outline: 1px solid red;
   }

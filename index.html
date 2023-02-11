@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Место</title>
     <link rel="stylesheet" href="pages/index.css">
+    <script src="./index.js" defer></script>
 </head>
 <body class="page">
     <header class="header">
@@ -17,8 +18,8 @@
             <div class="profile__info">
                 <img src="images/avatar.png" alt="аватар пользователя" class="profile__image">
                 <div class="profile__biography">
-                    <div class="profile__name">Жак-Ив Кусто</div>
-                    <div class="profile__job-title">Исследователь океана</div>
+                    <h1 class="profile__name">Жак-Ив Кусто</h1>
+                    <p class="profile__job-title">Исследователь океана</p>
                 </div>
                 <button class="profile__button-edit"></button>
             </div>
@@ -28,42 +29,42 @@
             <div class="element">
                 <img src="images/karachaevsk.png" alt="Карачаевск" class="element__image">
                 <div class="element__title">
-                    <p class="element__name">Карачаевск</p>
+                    <h2 class="element__name">Карачаевск</h2>
                     <button class="element__button-like"></button>
                 </div>
             </div>
             <div class="element">
                 <img src="images/elbrus.png" alt="гора Эльбрус" class="element__image">
                 <div class="element__title">
-                    <p class="element__name">Гора Эльбрус</p>
+                    <h2 class="element__name">Гора Эльбрус</h2>
                     <button class="element__button-like"></button>
                 </div>
             </div>
             <div class="element">
                 <img src="images/dombay.png" alt="Домбай" class="element__image">
                 <div class="element__title">
-                    <p class="element__name">Домбай</p>
+                    <h2 class="element__name">Домбай</h2>
                     <button class="element__button-like"></button>
                 </div>
             </div>
             <div class="element">
                 <img src="images/elbrus.png" alt="гора Эльбрус" class="element__image">
                 <div class="element__title">
-                    <p class="element__name">Гора Эльбрус</p>
+                    <h2 class="element__name">Гора Эльбрус</h2>
                     <button class="element__button-like"></button>
                 </div>
             </div>
             <div class="element">
                 <img src="images/dombay.png" alt="Домбай" class="element__image">
                 <div class="element__title">
-                    <p class="element__name">Домбай</p>
+                    <h2 class="element__name">Домбай</h2>
                     <button class="element__button-like"></button>
                 </div>
             </div>
             <div class="element">
                 <img src="images/karachaevsk.png" alt="Карачаево-Черкесск" class="element__image">
                 <div class="element__title">
-                    <p class="element__name">Карачаево-Черкесск</p>
+                    <h2 class="element__name">Карачаево-Черкесск</h2>
                     <button class="element__button-like"></button>
                 </div>
             </div>
@@ -72,5 +73,16 @@
     <footer class="footer">
         <img src="images/logo_footer.svg" alt="логотип Место" class="footer__logo">
     </footer>
+    <!-- <div class="popup"> -->
+        <div class="popup-edit">
+            <h2 class="popup-edit__title">Редактировать профиль</h2>
+            <input type="text" class="popup-edit__user-name" placeholder="Имя">
+            <div class="popup-edit__line"></div>
+            <input type="text" class="popup-edit__user-occupation" placeholder="Должность">
+            <div class="popup-edit__line"></div>
+            <button class="popup-edit__button-save">Сохранить</button>
+            <button class="popup-edit__button-close"></button>
+        </div>
+    <!-- </div> -->
 </body>
 </html>

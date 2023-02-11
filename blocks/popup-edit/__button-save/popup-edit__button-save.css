@@ -1,0 +1,15 @@
+.popup-edit__button-save {
+    background: #000000;
+    border-radius: 2px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 48px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 358px;
+    min-height: 50px;
+}
