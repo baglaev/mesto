@@ -1,15 +1,15 @@
-.popup-edit__button-close {
+.popup__button-close {
+    position: absolute;
+    top: -40px;
+    right: -40px;
     background: url(../../../images/close-Icon.svg);
     background-repeat: no-repeat;
     background-position: center;
     width: 32px;
     height: 32px;
-    position: absolute;
-    top: -48px;
-    right: -38px;
 }
 
-.popup-edit__button-close:hover {
+.popup__button-close:hover {
     opacity: 0.6;
     cursor: pointer;
 }

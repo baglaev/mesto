@@ -1,4 +1,4 @@
-.popup-edit__button-save {
+.popup__button-save {
     background: #000000;
     border-radius: 2px;
     font-style: normal;
@@ -8,8 +8,11 @@
     text-align: center;
     color: #FFFFFF;
     margin-top: 48px;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 358px;
+    width: 100%;
     min-height: 50px;
+}
+
+.popup__button-save:hover {
+    opacity: 0.8;
+    cursor: pointer;
 }
