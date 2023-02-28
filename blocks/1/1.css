@@ -1,0 +1,57 @@
+.profile__info-1 {
+    display: flex;
+}
+
+.profile__biography-1 {
+    margin-left: 30px;
+}
+
+.profile__name-1 {
+    display: flex;
+}
+
+.profile__title-1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    color: #FFFFFF;
+    margin: 22px 0 0 0;
+}
+
+.profile__button-edit-1 {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #FFFFFF;
+    background: url(../../../images/button_editing.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 37px;
+    margin-left: 22px;
+}
+
+.profile__button-edit-1:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+/* @media screen and (max-width: 650px) {
+    .profile__button-edit-1 {
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        bottom: 37px;
+        right: 26px;
+        margin: 0;
+    }
+} */
+
+.profile__job-title-1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
