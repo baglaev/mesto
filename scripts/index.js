@@ -19,7 +19,30 @@ editPopupCloseButton.addEventListener('click', function() {
     closePopup(editPopup);
 });
 
+let userName = 'Жак-Ив Кусто';
+let userOccupation = 'Исследователь океана';
 
+let userNameElement = document.querySelector('.profile__title');
+userNameElement.textContent = userName;
+
+let userOccupationElement = document.querySelector('.profile__job-title');
+userOccupationElement.textContent = userOccupation;
+
+let userNameInput = document.querySelector('.popup__user-name');
+userNameInput.value = userName;
+
+let userOccupationInput = document.querySelector('.popup__user-occupation');
+userOccupationInput.value = userOccupation;
+
+userNameInput.addEventListener('input', function(event) {
+    let value = event.target.value;
+    userNameElement.textContent = value;
+});
+console.log(userNameElement);
+userOccupationInput.addEventListener('input', function(event) {
+    let value = event.target.value;
+    userOccupationElement.textContent = value;
+});
 
 
 // Находим форму в DOM
