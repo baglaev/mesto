@@ -7,6 +7,7 @@
     background-position: center;
     width: 32px;
     height: 32px;
+    border: none;
 }
 
 .popup__button-close:hover {

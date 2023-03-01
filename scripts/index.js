@@ -34,37 +34,20 @@ userNameInput.value = userName;
 let userOccupationInput = document.querySelector('.popup__user-occupation');
 userOccupationInput.value = userOccupation;
 
-userNameInput.addEventListener('input', function(event) {
-    let value = event.target.value;
-    userNameElement.textContent = value;
-});
-console.log(userNameElement);
-userOccupationInput.addEventListener('input', function(event) {
-    let value = event.target.value;
-    userOccupationElement.textContent = value;
-});
+let formElement = document.querySelector('.popup__form');
+let nameInput = document.querySelector('.popup__user-name');
+let jobInput = document.querySelector('.popup__user-occupation');
 
+function handleFormSubmit (evt) {
+    evt.preventDefault();
 
-// Находим форму в DOM
-//bs let formElement = // Воспользуйтесь методом querySelector()
-// Находим поля формы в DOM
-//bs let nameInput = // Воспользуйтесь инструментом .querySelector()
-//bs let jobInput = // Воспользуйтесь инструментом .querySelector()
+    let nameInputValue = nameInput.value;
+    let jobInputValue = jobInput.value;
 
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
-//bs function handleFormSubmit (evt) {
-//bs    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-                                                // Так мы можем определить свою логику отправки.
-                                                // О том, как это делать, расскажем позже.
+    userNameElement.textContent = nameInputValue;
+    userOccupationElement.textContent = jobInputValue;
+    closePopup();
+ 
+};
 
-    // Получите значение полей jobInput и nameInput из свойства value
-
-    // Выберите элементы, куда должны быть вставлены значения полей
-
-    // Вставьте новые значения с помощью textContent
-//bs }
-
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-//bs formElement.addEventListener('submit', handleFormSubmit); 
+formElement.addEventListener('submit', handleFormSubmit); 
