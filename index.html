@@ -11,7 +11,6 @@
 <body class="page">
     <header class="header">
         <img src="images/logo_header.svg" alt="логотип Mesto" class="header__logo">
-        <div class="header__line"></div>
     </header>
     <main class="main">
         <section class="profile">
@@ -20,68 +19,68 @@
                 <div class="profile__biography">
                     <div class="profile__name">
                         <h1 class="profile__title">Жак-Ив Кусто</h1>
-                        <button class="profile__button-edit"></button>
+                        <button class="profile__button-edit" type="button" aria-label="edit"></button>
                     </div>
                     <p class="profile__job-title">Исследователь океана</p>
                 </div>
             </div>
-            <button class="profile__button-add"></button>
+            <button class="profile__button-add" type="button" aria-label="add"></button>
         </section>
         <section class="elements">
-            <div class="element">
+            <article class="element">
                 <img src="images/karachaevsk.png" alt="Карачаевск" class="element__image">
                 <div class="element__title">
                     <h2 class="element__name">Карачаевск</h2>
-                    <button class="element__button-like"></button>
+                    <button class="element__button-like" type="button" aria-label="like"></button>
                 </div>
-            </div>
-            <div class="element">
+            </article>
+            <article class="element">
                 <img src="images/elbrus.png" alt="гора Эльбрус" class="element__image">
                 <div class="element__title">
                     <h2 class="element__name">Гора Эльбрус</h2>
-                    <button class="element__button-like"></button>
+                    <button class="element__button-like" type="button" aria-label="like"></button>
                 </div>
-            </div>
-            <div class="element">
+            </article>
+            <article class="element">
                 <img src="images/dombay.png" alt="Домбай" class="element__image">
                 <div class="element__title">
                     <h2 class="element__name">Домбай</h2>
-                    <button class="element__button-like"></button>
+                    <button class="element__button-like" type="button" aria-label="like"></button>
                 </div>
-            </div>
-            <div class="element">
+            </article>
+            <article class="element">
                 <img src="images/elbrus.png" alt="гора Эльбрус" class="element__image">
                 <div class="element__title">
                     <h2 class="element__name">Гора Эльбрус</h2>
-                    <button class="element__button-like"></button>
+                    <button class="element__button-like" type="button" aria-label="like"></button>
                 </div>
-            </div>
-            <div class="element">
+            </article>
+            <article class="element">
                 <img src="images/dombay.png" alt="Домбай" class="element__image">
                 <div class="element__title">
                     <h2 class="element__name">Домбай</h2>
-                    <button class="element__button-like"></button>
+                    <button class="element__button-like" type="button" aria-label="like"></button>
                 </div>
-            </div>
-            <div class="element">
+            </article>
+            <article class="element">
                 <img src="images/karachaevsk.png" alt="Карачаево-Черкесск" class="element__image">
                 <div class="element__title">
                     <h2 class="element__name">Карачаево-Черкесск</h2>
-                    <button class="element__button-like"></button>
+                    <button class="element__button-like" type="button" aria-label="like"></button>
                 </div>
-            </div>
+            </article>
         </section>
     </main>
     <footer class="footer">
-        <img src="images/logo_footer.svg" alt="логотип Место" class="footer__logo">
+        <p class="footer__logo">&#169; 2023 Mesto Russia</p>
     </footer>
     <div class="popup">
         <div class="popup__container">
-            <button class="popup__button-close"></button>
-            <form class="popup__form">
+            <button class="popup__button-close" type="button"></button>
+            <form class="popup__form" name="form-edit">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" class="popup__user-name" placeholder="Имя">
-                <input type="text" class="popup__user-occupation" placeholder="Должность">
+                <input type="text" name="user-name" class="popup__user-name" placeholder="Имя">
+                <input type="text" name="user-occupation" class="popup__user-occupation" placeholder="Должность">
                 <button type="submit" class="popup__button-save">Сохранить</button>
             </form>
         </div>
