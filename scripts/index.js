@@ -1,11 +1,11 @@
 let editProfileButton = document.querySelector('.profile__button-edit');
 let editPopup = document.querySelector('.popup');
 
-function openPopup(popup) {
+function openPopup() {
     editPopup.classList.add('popup_opened');
 };
 
-function closePopup(popup) {
+function closePopup() {
     editPopup.classList.remove('popup_opened');
 }
 
