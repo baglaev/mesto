@@ -28,15 +28,15 @@ userNameElement.textContent = userName;
 let userOccupationElement = document.querySelector('.profile__job-title');
 userOccupationElement.textContent = userOccupation;
 
-let userNameInput = document.querySelector('.popup__user-name');
+let userNameInput = document.querySelector('.popup__input_profile_name');
 userNameInput.value = userName;
 
-let userOccupationInput = document.querySelector('.popup__user-occupation');
+let userOccupationInput = document.querySelector('.popup__input_profile_occupation');
 userOccupationInput.value = userOccupation;
 
 let formElement = document.querySelector('.popup__form');
-let nameInput = document.querySelector('.popup__user-name');
-let jobInput = document.querySelector('.popup__user-occupation');
+let nameInput = document.querySelector('.popup__input_profile_name');
+let jobInput = document.querySelector('.popup__input_profile_occupation');
 
 function handleFormSubmit (evt) {
     evt.preventDefault();

@@ -17,12 +17,8 @@
 
 @media screen and (max-width: 650px) {
     .popup__button-close {
-        background: url(../../../images/close_Icon_mobile.svg);
-        background-repeat: no-repeat;
-        background-position: center;
-        width: 20px;
-        height: 20px;
-        right: 0;
-        top: -37px;
+        background-size: 20px;
+        right: -5px;
+        top: -43px;
     }
 }
