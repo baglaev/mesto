@@ -2,9 +2,14 @@
     margin-left: 30px;
 }
 
+@media screen and (max-width: 800px) {
+    .profile__biography {
+        margin-left: 20px;
+    }
+}
+
 @media screen and (max-width: 650px) {
     .profile__biography {
         margin-left: 0;
     }
-    
 }

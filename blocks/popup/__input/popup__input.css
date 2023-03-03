@@ -8,11 +8,5 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
+    margin-bottom: 30px;
 }
-
-/* @media screen and (max-width: 650px) {
-    .popup__user-name {
-        margin-top: 75px;
-    }
-    
-} */

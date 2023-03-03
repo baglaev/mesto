@@ -17,12 +17,12 @@ function closePopup() {
 }
 
 editProfileButton.addEventListener('click', function() {
-    openPopup(editPopup);
+    openPopup();
 });
 
 let editPopupCloseButton = document.querySelector('.popup__button-close');
 editPopupCloseButton.addEventListener('click', function() {
-    closePopup(editPopup);
+    closePopup();
 });
 
 function handleFormSubmit (evt) {

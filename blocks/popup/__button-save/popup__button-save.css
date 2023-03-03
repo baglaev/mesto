@@ -7,7 +7,7 @@
     line-height: 22px;
     text-align: center;
     color: #FFFFFF;
-    margin-top: 48px;
+    margin-top: 18px;
     width: 100%;
     min-height: 50px;
     padding: 0;
@@ -15,7 +15,6 @@
 }
 
 .popup__button-save:hover {
-    /* opacity: 0.8; */
     background-color: rgba(0, 0, 0, .8);
     cursor: pointer;
 }
@@ -24,7 +23,7 @@
     .popup__button-save {
         font-size: 14px;
         line-height: 17px;
-        margin-top: 35px;
+        margin-top: 15px;
         min-height: 46px;
     }
     
