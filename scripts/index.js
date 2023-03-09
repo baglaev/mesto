@@ -1,3 +1,31 @@
+// const initialCards = [
+//     {
+//       name: 'Архыз',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+//     },
+//     {
+//       name: 'Челябинская область',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+//     },
+//     {
+//       name: 'Иваново',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+//     },
+//     {
+//       name: 'Камчатка',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+//     },
+//     {
+//       name: 'Холмогорский район',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+//     },
+//     {
+//       name: 'Байкал',
+//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+//     }
+//   ];
+
+
 let editProfileButton = document.querySelector('.profile__button-edit');
 let editPopup = document.querySelector('.popup');
 let formElement = document.querySelector('.popup__form');
@@ -14,7 +42,7 @@ function openPopup() {
 
 function closePopup() {
     editPopup.classList.remove('popup_opened');
-}
+};
 
 editProfileButton.addEventListener('click', function() {
     openPopup();
@@ -37,4 +65,26 @@ function handleFormSubmit (evt) {
  
 };
 
-formElement.addEventListener('submit', handleFormSubmit); 
+formElement.addEventListener('submit', handleFormSubmit);
+
+// новый код к 5 пр
+
+const editPopupImage = document.querySelector('#card-image');
+const addCardButton = document.querySelector('.profile__button-add');
+
+function openPopupAddImage() {
+    editPopupImage.classList.add('popup_opened');
+}
+
+addCardButton.addEventListener('click', function() {
+    openPopupAddImage();
+});
+
+function closePopupCardImage() {
+    editPopupImage.classList.remove('popup_opened');
+}
+
+const closePopupImage = document.querySelector('#card-image-close');
+closePopupImage.addEventListener('click', function() {
+    closePopupCardImage();
+});
