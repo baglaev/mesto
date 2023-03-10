@@ -70,17 +70,30 @@ const initialCards = [
 
 const page = document.querySelector('.page');
 
-initialCards.forEach(function(card) {
-    const cardHTML = `
-        <article class="element">
-        <img src="${card.link}" alt="гора Эльбрус" class="element__image">
-        <div class="element__title">
-            <h2 class="element__name">${card.name}</h2>
-            <button class="element__button-like" type="button" aria-label="like"></button>
-        </div>
-        </article>`
-    page.insertAdjacentHTML('beforeend', cardHTML);
-});
+function createCard(card) {
+    const newCard = document.querySelector('#cardTemplate').content.cloneNode(true);
+    const cardName = newCard.querySelector('.element__name');
+    cardName.textContent = card.name;
+    const cardImage = newCard.querySelector('.element__image');
+    cardImage.setAttribute('src', card.link);
+    page.append(newCard);
+};
+
+initialCards.forEach(createCard);
+
+
+
+// initialCards.forEach(function(card) {
+//     const cardHTML = `
+//         <article class="element">
+//         <img src="${card.link}" alt="карточка" class="element__image">
+//         <div class="element__title">
+//             <h2 class="element__name">${card.name}</h2>
+//             <button class="element__button-like" type="button" aria-label="like"></button>
+//         </div>
+//         </article>`
+//     page.insertAdjacentHTML('beforeend', cardHTML);
+// });
 
 const card = document.querySelector('#card');
 const addCardButton = document.querySelector('.profile__button-add');
