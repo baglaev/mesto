@@ -80,7 +80,7 @@ function createCard(card) {
     // cardImage.setAttribute('alt', card.alt);
     const deleteButton = newCard.querySelector('.element__button-delete');
     deleteButton.addEventListener('click', cardDelete);
-    elements.append(newCard);
+    elements.prepend(newCard);
 };
 
 
