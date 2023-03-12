@@ -69,6 +69,7 @@ const initialCards = [
   ];
 
 const page = document.querySelector('.page');
+const elements = document.querySelector('.elements');
 
 function createCard(card) {
     const newCard = document.querySelector('#cardTemplate').content.cloneNode(true);
@@ -76,10 +77,20 @@ function createCard(card) {
     cardName.textContent = card.name;
     const cardImage = newCard.querySelector('.element__image');
     cardImage.setAttribute('src', card.link);
-    page.append(newCard);
+    // cardImage.setAttribute('alt', card.alt);
+    const deleteButton = newCard.querySelector('.element__button-delete');
+    deleteButton.addEventListener('click', cardDelete);
+    elements.append(newCard);
 };
 
+
 initialCards.forEach(createCard);
+
+function cardDelete(event) {
+  const button = event.target;
+  const card = button.closest('.element');
+  card.remove();
+}
 
 
 
@@ -95,11 +106,11 @@ initialCards.forEach(createCard);
 //     page.insertAdjacentHTML('beforeend', cardHTML);
 // });
 
-const card = document.querySelector('#card');
+const cardPopup = document.querySelector('#card');
 const addCardButton = document.querySelector('.profile__button-add');
 
 function openCard() {
-    card.classList.add('popup_opened');
+    cardPopup.classList.add('popup_opened');
 }
 
 addCardButton.addEventListener('click', function() {
@@ -107,10 +118,30 @@ addCardButton.addEventListener('click', function() {
 });
 
 function closeCard() {
-    card.classList.remove('popup_opened');
+    cardPopup.classList.remove('popup_opened');
+    const inputImage = document.querySelector('.popup__input_image_name').value = '';
+    const inputImageUrl = document.querySelector('.popup__input_image_url').value = '';
 }
 
 const closeCardButton = card.querySelector('.popup__button-close');
 closeCardButton.addEventListener('click', function() {
     closeCard();
 });
+
+
+// сохранение формы и взятие из нее данных
+const formCard = cardPopup.querySelector('.popup__form');
+formCard.addEventListener('submit', handleCardSubmit);
+
+function handleCardSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const inputImage = form.querySelector('.popup__input_image_name').value;
+  const inputImageUrl = form.querySelector('.popup__input_image_url').value;
+  const card = {
+    name: inputImage,
+    link: inputImageUrl
+  };
+  createCard(card);
+  closeCard();
+}
