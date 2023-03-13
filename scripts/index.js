@@ -25,7 +25,7 @@ editPopupCloseButton.addEventListener('click', function() {
     closePopup();
 });
 
-function handleFormSubmit (evt) {
+function handleFormSubmit(evt) {
     evt.preventDefault();
     
     let nameInputValue = nameInput.value;
@@ -77,7 +77,7 @@ function createCard(card) {
     cardName.textContent = card.name;
     const cardImage = newCard.querySelector('.element__image');
     cardImage.setAttribute('src', card.link);
-    // cardImage.setAttribute('alt', card.alt);
+    cardImage.setAttribute('alt', card.name);
     const deleteButton = newCard.querySelector('.element__button-delete');
     deleteButton.addEventListener('click', cardDelete);
     elements.prepend(newCard);
@@ -91,20 +91,6 @@ function cardDelete(event) {
   const card = button.closest('.element');
   card.remove();
 }
-
-
-
-// initialCards.forEach(function(card) {
-//     const cardHTML = `
-//         <article class="element">
-//         <img src="${card.link}" alt="карточка" class="element__image">
-//         <div class="element__title">
-//             <h2 class="element__name">${card.name}</h2>
-//             <button class="element__button-like" type="button" aria-label="like"></button>
-//         </div>
-//         </article>`
-//     page.insertAdjacentHTML('beforeend', cardHTML);
-// });
 
 const cardPopup = document.querySelector('#card');
 const addCardButton = document.querySelector('.profile__button-add');
@@ -145,3 +131,29 @@ function handleCardSubmit(event) {
   createCard(card);
   closeCard();
 }
+
+
+// кнопка like
+
+const buttonLike = document.querySelectorAll('.element__button-like');
+// const buttonLikeActive = document.querySelector('.element__button-like_active');
+
+buttonLike.forEach(button => {
+  button.addEventListener('click', likeCard)
+  // button.addEventListener('click', unlike)
+  
+  // (event) => {
+  //   const buttonLikeActive = event.currentTarget;
+  //   buttonLikeActive.classList.add('element__button-like_active');
+  // });
+});
+
+function likeCard(event) {
+  const buttonLikeActive = event.currentTarget;
+  buttonLikeActive.classList.toggle('element__button-like_active');
+};
+
+// function unlike(event) {
+//   const buttonLikeActive = event.currentTarget;
+//   buttonLikeActive.classList.remove('element__button-like_active');
+// };
