@@ -135,25 +135,34 @@ function handleCardSubmit(event) {
 
 // кнопка like
 
-const buttonLike = document.querySelectorAll('.element__button-like');
-// const buttonLikeActive = document.querySelector('.element__button-like_active');
+// const buttonLike = document.querySelectorAll('.element__button-like');
 
-buttonLike.forEach(button => {
-  button.addEventListener('click', likeCard)
-  // button.addEventListener('click', unlike)
-  
-  // (event) => {
-  //   const buttonLikeActive = event.currentTarget;
-  //   buttonLikeActive.classList.add('element__button-like_active');
-  // });
-});
 
-function likeCard(event) {
-  const buttonLikeActive = event.currentTarget;
-  buttonLikeActive.classList.toggle('element__button-like_active');
-};
+// buttonLike.forEach(button => {
+//   button.addEventListener('click', likeCard)
+// });
 
-// function unlike(event) {
+// function likeCard(event) {
 //   const buttonLikeActive = event.currentTarget;
-//   buttonLikeActive.classList.remove('element__button-like_active');
+//   buttonLikeActive.classList.toggle('element__button-like_active');
 // };
+
+
+// новый вариант лайка
+
+// const card = document.querySelector('.element');
+// const buttonLike = card.querySelector('.element__button-like');
+
+// buttonLike.addEventListener('click', likeCard);
+
+// function likeCard(event) {
+//   const buttonLikeActive = event.currentTarget;
+//   buttonLikeActive.classList.toggle('element__button-like_active');
+// };
+
+const newCard = document.querySelector('#cardTemplate').content.cloneNode(true);
+
+const buttonLike = newCard.querySelector('.element__button-like');
+buttonLike.addEventListener('click', function(event) {
+  event.target.classList.toggle('element__button-like_active');
+})
