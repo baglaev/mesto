@@ -87,8 +87,8 @@ function createCard(card) {
 
 
     function openImage() {
-      const imagePopupTitle = document.querySelector('.image__title');
-      const imagePhoto = document.querySelector('.image__photo');
+      const imagePopupTitle = document.querySelector('.popup-image__title');
+      const imagePhoto = document.querySelector('.popup-image__photo');
       imagePhoto.src = card.link;
       imagePhoto.alt = card.name;
       imagePopupTitle.textContent = card.name;
