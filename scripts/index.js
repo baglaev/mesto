@@ -77,9 +77,7 @@ function createCard(card) {
     cardName.textContent = card.name;
     const cardImage = newCard.querySelector('.element__image');
 
-    cardImage.addEventListener('click', () => {
-    openImage();
-  });
+    cardImage.addEventListener('click', openImage);
 
     cardImage.setAttribute('src', card.link);
     cardImage.setAttribute('alt', card.name);
