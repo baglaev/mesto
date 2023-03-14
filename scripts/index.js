@@ -18,7 +18,7 @@ function closePopup() {
 
 editProfileButton.addEventListener('click', openPopup);
 
-let editPopupCloseButton = document.querySelector('.popup__button-close');
+const editPopupCloseButton = document.querySelector('.popup__button-close');
 editPopupCloseButton.addEventListener('click', closePopup);
 
 function handleFormSubmit(evt) {
@@ -79,7 +79,7 @@ function createCard(card) {
     cardImage.setAttribute('src', card.link);
     cardImage.setAttribute('alt', card.name);
     const deleteButton = newCard.querySelector('.element__button-delete');
-    deleteButton.addEventListener('click', cardDelete);
+    deleteButton.addEventListener('click', deleteCard);
     const likeButton = newCard.querySelector('.element__button-like');
     likeButton.addEventListener('click', likeCard);
     const imagePopupCloseButton = popupImage.querySelector('.popup__button-close');
@@ -111,7 +111,7 @@ function likeCard(event) {
 
 initialCards.forEach(createCard);
 
-function cardDelete(event) {
+function deleteCard(event) {
   const button = event.target;
   const cardClose = button.closest('.element');
   cardClose.remove();
