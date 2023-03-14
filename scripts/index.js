@@ -70,6 +70,7 @@ const initialCards = [
 
 const page = document.querySelector('.page');
 const elements = document.querySelector('.elements');
+const popupImage = document.querySelector('.popup-image');
 
 function createCard(card) {
     const newCard = document.querySelector('#cardTemplate').content.cloneNode(true);
@@ -85,20 +86,27 @@ function createCard(card) {
     deleteButton.addEventListener('click', cardDelete);
     const likeButton = newCard.querySelector('.element__button-like');
     likeButton.addEventListener('click', likeCard);
+    const imagePopupCloseButton = popupImage.querySelector('.popup__button-close');
+    imagePopupCloseButton.addEventListener('click', closeImagePopup)
+
+
+    function openImage() {
+      const imagePopupTitle = document.querySelector('.image__title');
+      const imagePhoto = document.querySelector('.image__photo');
+      imagePhoto.src = card.link;
+      imagePhoto.alt = card.name;
+      imagePopupTitle.textContent = card.name;
+      popupImage.classList.add('popup_opened');
+
+    };
 
     elements.prepend(newCard);
   
 };
 
-// image zoom
-function openImage() {
- 
-  const popupImage = document.querySelector('.popup-image');
-  popupImage.classList.add('popup_opened');
-};
-
-
-
+function closeImagePopup() {
+  popupImage.classList.remove('popup_opened');
+}
 
 // like
 
@@ -106,7 +114,6 @@ function likeCard(event) {
   const likeButtonActive = event.target;
   likeButtonActive.classList.toggle('element__button-like_active');
 };
-
 
 initialCards.forEach(createCard);
 
