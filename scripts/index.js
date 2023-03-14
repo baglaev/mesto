@@ -1,10 +1,10 @@
-let editProfileButton = document.querySelector('.profile__button-edit');
-let editPopup = document.querySelector('.popup');
-let formElement = document.querySelector('.popup__form');
-let userNameElement = document.querySelector('.profile__title');
-let userOccupationElement = document.querySelector('.profile__job-title');
-let nameInput = document.querySelector('.popup__input_profile_name');
-let occupationInput = document.querySelector('.popup__input_profile_occupation');
+const editProfileButton = document.querySelector('.profile__button-edit');
+const editPopup = document.querySelector('.popup');
+const formElement = document.querySelector('.popup__form');
+const userNameElement = document.querySelector('.profile__title');
+const userOccupationElement = document.querySelector('.profile__job-title');
+const nameInput = document.querySelector('.popup__input_profile_name');
+const occupationInput = document.querySelector('.popup__input_profile_occupation');
 
 function openPopup() {
     editPopup.classList.add('popup_opened');
@@ -16,14 +16,10 @@ function closePopup() {
     editPopup.classList.remove('popup_opened');
 };
 
-editProfileButton.addEventListener('click', function() {
-    openPopup();
-});
+editProfileButton.addEventListener('click', openPopup);
 
 let editPopupCloseButton = document.querySelector('.popup__button-close');
-editPopupCloseButton.addEventListener('click', function() {
-    closePopup();
-});
+editPopupCloseButton.addEventListener('click', closePopup);
 
 function handleFormSubmit(evt) {
     evt.preventDefault();
@@ -107,8 +103,6 @@ function createCard(card) {
 function closeImagePopup() {
   popupImage.classList.remove('popup_opened');
 }
-
-// like
 
 function likeCard(event) {
   const likeButtonActive = event.target;
