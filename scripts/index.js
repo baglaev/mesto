@@ -78,7 +78,7 @@ function createCard(card) {
     const cardImage = newCard.querySelector('.element__image');
 
     cardImage.addEventListener('click', () => {
-    openImage;
+    openImage();
   });
 
     cardImage.setAttribute('src', card.link);
@@ -95,7 +95,7 @@ function createCard(card) {
 // image zoom
 function openImage() {
  
-  const popupImage = document.querySelector('.popup_image');
+  const popupImage = document.querySelector('.popup-image');
   popupImage.classList.add('popup_opened');
 };
 
