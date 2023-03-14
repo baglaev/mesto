@@ -70,26 +70,36 @@ const initialCards = [
 
 const page = document.querySelector('.page');
 const elements = document.querySelector('.elements');
-// const buttonLike = document.querySelector('.element__button-like');
 
 function createCard(card) {
     const newCard = document.querySelector('#cardTemplate').content.cloneNode(true);
     const cardName = newCard.querySelector('.element__name');
     cardName.textContent = card.name;
     const cardImage = newCard.querySelector('.element__image');
+
+    cardImage.addEventListener('click', () => {
+    openImage;
+  });
+
     cardImage.setAttribute('src', card.link);
     cardImage.setAttribute('alt', card.name);
     const deleteButton = newCard.querySelector('.element__button-delete');
     deleteButton.addEventListener('click', cardDelete);
-
     const likeButton = newCard.querySelector('.element__button-like');
     likeButton.addEventListener('click', likeCard);
 
     elements.prepend(newCard);
-
-    
-
+  
 };
+
+// image zoom
+function openImage() {
+ 
+  const popupImage = document.querySelector('.popup_image');
+  popupImage.classList.add('popup_opened');
+};
+
+
 
 
 // like
@@ -147,38 +157,3 @@ function handleCardSubmit(event) {
   createCard(card);
   closeCard();
 }
-
-
-// кнопка like
-
-// const buttonLike = document.querySelectorAll('.element__button-like');
-
-
-// buttonLike.forEach(button => {
-//   button.addEventListener('click', likeCard)
-// });
-
-// function likeCard(event) {
-//   const buttonLikeActive = event.currentTarget;
-//   buttonLikeActive.classList.toggle('element__button-like_active');
-// };
-
-
-// новый вариант лайка
-
-// const card = document.querySelector('.element');
-// const buttonLike = card.querySelector('.element__button-like');
-
-// buttonLike.addEventListener('click', likeCard);
-
-// function likeCard(event) {
-//   const buttonLikeActive = event.currentTarget;
-//   buttonLikeActive.classList.toggle('element__button-like_active');
-// };
-
-// const newCard = document.querySelector('#cardTemplate').content.cloneNode(true);
-
-// const buttonLike = newCard.querySelector('.element__button-like');
-// buttonLike.addEventListener('click', function(event) {
-//   event.target.classList.toggle('element__button-like_active');
-// })
