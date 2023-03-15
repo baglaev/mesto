@@ -43,18 +43,6 @@ function closePopup(popup) {
     popup.classList.remove('popup_opened');
 };
 
-// function closePopup() {
-//   editPopup.classList.remove('popup_opened');
-// };
-
-// function closeImagePopup() {
-//   popupImage.classList.remove('popup_opened');
-// }
-
-// function closeCard() {
-//   cardPopup.classList.remove('popup_opened');
-// }
-
 editProfileButton.addEventListener('click', () => {
   nameInput.value = userNameElement.textContent;
   occupationInput.value = userOccupationElement.textContent;
@@ -81,33 +69,6 @@ function handleFormSubmit(evt) {
 formElement.addEventListener('submit', handleFormSubmit);
 
 // новый код к 5 пр
-
-// const initialCards = [
-//     {
-//       name: 'Архыз',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-//     },
-//     {
-//       name: 'Челябинская область',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-//     },
-//     {
-//       name: 'Иваново',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-//     },
-//     {
-//       name: 'Камчатка',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-//     },
-//     {
-//       name: 'Холмогорский район',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-//     },
-//     {
-//       name: 'Байкал',
-//       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-//     }
-//   ];
 
 const page = document.querySelector('.page');
 const elements = document.querySelector('.elements');
@@ -141,7 +102,6 @@ function createCard(card) {
       imagePhoto.src = card.link;
       imagePhoto.alt = card.name;
       imagePopupTitle.textContent = card.name;
-      // popupImage.classList.add('popup_opened');
       openPopup(popupImage);
 
     };
@@ -149,10 +109,6 @@ function createCard(card) {
     elements.prepend(newCard);
   
 };
-
-// function closeImagePopup() {
-//   popupImage.classList.remove('popup_opened');
-// }
 
 function likeCard(event) {
   const likeButtonActive = event.target;
@@ -167,12 +123,9 @@ function deleteCard(event) {
   cardClose.remove();
 };
 
-const cardPopup = document.querySelector('#card');
+const cardPopup = document.querySelector('.popup-card');
 const addCardButton = document.querySelector('.profile__button-add');
 
-// function openCard() {
-//   cardPopup.classList.add('popup_opened');
-// };
 
 addCardButton.addEventListener('click', () => {
   openPopup(cardPopup);
