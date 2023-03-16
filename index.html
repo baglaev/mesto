@@ -43,9 +43,7 @@
             </form>
         </div>
     </div>
-
-<!-- попап с добавлением карточки -->
-
+    <!-- попап с добавлением карточки -->
     <div class="popup popup-card">
         <div class="popup__container">
             <button class="popup__button-close" type="button"></button>
@@ -57,7 +55,14 @@
             </form>
         </div>
     </div>
-
+    <!-- зум картинки -->
+    <div class="popup popup-image">
+        <div class="popup-image__container">
+            <button class="popup__button-close" type="button"></button>
+            <img src="#" alt="#" class="popup-image__photo">
+            <h2 class="popup-image__title"></h2>
+        </div>
+    </div>
     <template id="cardTemplate">
         <article class="element">
             <button class="element__button-delete" type="button" aria-label="delete"></button>
@@ -68,14 +73,5 @@
             </div>
         </article>
     </template>
-
-    <!-- зум картинки -->
-    <div class="popup popup-image">
-        <div class="popup-image__container">
-            <button class="popup__button-close" type="button"></button>
-            <img src="#" alt="#" class="popup-image__photo">
-            <h2 class="popup-image__title"></h2>
-        </div>
-    </div>
 </body>
 </html>
