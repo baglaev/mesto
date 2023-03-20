@@ -46,11 +46,11 @@ const initialCards = [
 ];
 
 function openPopup(popup) {
-    popup.classList.add('popup_opened');
+  popup.classList.add('popup_opened');
 };
 
 function closePopup(popup) {
-    popup.classList.remove('popup_opened');
+  popup.classList.remove('popup_opened');
 };
 
 editProfileButton.addEventListener('click', () => {
@@ -63,21 +63,44 @@ editPopupCloseButton.addEventListener('click', () => {
   closePopup(profilePopup)
 });
 
-function handleProfileSubmit(evt) {
-    evt.preventDefault();
-    
-    const nameInputValue = nameInput.value;
-    const jobInputValue = occupationInput.value;
+// новый код к 6 пр
 
-    userNameElement.textContent = nameInputValue;
-    userOccupationElement.textContent = jobInputValue;
-    closePopup(profilePopup);
+// document.addEventListener('keydown', function(event) {
+// 	if (event.key == 27) { // код клавиши Escape, но можно использовать e.key
+// 		popup.classList.remove('popup_opened');
+// 	}
+// });
+
+function closePopupOverlay(popup) {
+  popup.addEventListener('click', () => {
+    if (popup.contains())
+    closePopup(popup);
+  });
+ }
+
+ closePopupOverlay(popupImage);
+ closePopupOverlay(profilePopup);
+ closePopupOverlay(cardPopup);
+// popupImage.addEventListener('click', () => {
+//   // закрыть форму
+//   closePopup(popupImage);
+// });
+
+// ----------------------------------------------------------
+
+function handleProfileSubmit(evt) {
+  evt.preventDefault();
+  
+  const nameInputValue = nameInput.value;
+  const jobInputValue = occupationInput.value;
+
+  userNameElement.textContent = nameInputValue;
+  userOccupationElement.textContent = jobInputValue;
+  closePopup(profilePopup);
  
 };
 
 profileForm.addEventListener('submit', handleProfileSubmit);
-
-// новый код к 5 пр
 
 function getCard(item) {
   const cardElement = cardTemplate.content.cloneNode(true);
@@ -128,7 +151,7 @@ addCardButton.addEventListener('click', () => {
 });
 
 closeCardButton.addEventListener('click', () => {
-  closePopup(cardPopup)
+  closePopup(cardPopup);
 });
 
 
