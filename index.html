@@ -50,8 +50,10 @@
             <button class="popup__button-close" type="button"></button>
             <form class="popup__form" name="form-edit">
                 <h2 class="popup__title">Новое место</h2>
-                <input type="text" name="user-name" class="popup__input popup__input_image_name" placeholder="Название">
-                <input type="text" name="user-occupation" class="popup__input popup__input_image_url" placeholder="Ссылка на картинку">
+                <input type="text" name="name" class="popup__input popup__input_image_name" placeholder="Название">
+                <span class="popup__input-error popup__input-error_type_name"></span>
+                <input type="text" name="url" class="popup__input popup__input_image_url" placeholder="Ссылка на картинку">
+                <span class="popup__input-error popup__input-error_type_url"></span>
                 <button type="submit" class="popup__button-save">Сохранить</button>
             </form>
         </div>
