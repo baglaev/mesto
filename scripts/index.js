@@ -1,24 +1,3 @@
-const popup = document.querySelectorAll('.popup');
-const editProfileButton = document.querySelector('.profile__button-edit');
-const profilePopup = document.querySelector('.popup-profile');
-const profileForm = document.querySelector('.popup__form');
-const userNameElement = document.querySelector('.profile__title');
-const userOccupationElement = document.querySelector('.profile__job-title');
-const nameInput = document.querySelector('.popup__input_profile_name');
-const occupationInput = document.querySelector('.popup__input_profile_occupation');
-const editPopupCloseButton = profilePopup.querySelector('.popup__button-close');
-const page = document.querySelector('.page');
-const elements = document.querySelector('.elements');
-const popupImage = document.querySelector('.popup-image');
-const cardTemplate = document.querySelector('#cardTemplate');
-const imagePopupCloseButton = popupImage.querySelector('.popup__button-close');
-const imagePopupTitle = document.querySelector('.popup-image__title');
-const imagePhoto = document.querySelector('.popup-image__photo');
-const cardPopup = document.querySelector('.popup-card');
-const addCardButton = document.querySelector('.profile__button-add');
-const closeCardButton = cardPopup.querySelector('.popup__button-close');
-const formCard = cardPopup.querySelector('.popup__form');
-
 const initialCards = [
   {
     name: 'Архыз',
@@ -45,6 +24,27 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
+
+const popup = document.querySelectorAll('.popup');
+const editProfileButton = document.querySelector('.profile__button-edit');
+const profilePopup = document.querySelector('.popup-profile');
+const profileForm = document.querySelector('.popup__form');
+const userNameElement = document.querySelector('.profile__title');
+const userOccupationElement = document.querySelector('.profile__job-title');
+const nameInput = document.querySelector('.popup__input_profile_name');
+const occupationInput = document.querySelector('.popup__input_profile_occupation');
+const editPopupCloseButton = profilePopup.querySelector('.popup__button-close');
+const page = document.querySelector('.page');
+const elements = document.querySelector('.elements');
+const popupImage = document.querySelector('.popup-image');
+const cardTemplate = document.querySelector('#cardTemplate');
+const imagePopupCloseButton = popupImage.querySelector('.popup__button-close');
+const imagePopupTitle = document.querySelector('.popup-image__title');
+const imagePhoto = document.querySelector('.popup-image__photo');
+const cardPopup = document.querySelector('.popup-card');
+const addCardButton = document.querySelector('.profile__button-add');
+const closeCardButton = cardPopup.querySelector('.popup__button-close');
+const formCard = cardPopup.querySelector('.popup__form');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -91,7 +91,9 @@ editPopupCloseButton.addEventListener('click', () => {
 
 
 // esc
+
 function closePopupEscape(evt) {
+
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
