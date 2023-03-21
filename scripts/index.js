@@ -1,3 +1,4 @@
+const popup = document.querySelectorAll('.popup');
 const editProfileButton = document.querySelector('.profile__button-edit');
 const profilePopup = document.querySelector('.popup-profile');
 const profileForm = document.querySelector('.popup__form');
@@ -73,16 +74,16 @@ editPopupCloseButton.addEventListener('click', () => {
 // 	}
 // });
 
-function closePopupOverlay(popup) {
-  popup.addEventListener('click', () => {
-    if (popup.contains())
-    closePopup(popup);
-  });
- }
+// function closePopupOverlay(popup) {
+//   popup.addEventListener('click', () => {
+//     if (popup.contains())
+//     closePopup(popup);
+//   });
+//  }
 
- closePopupOverlay(popupImage);
- closePopupOverlay(profilePopup);
- closePopupOverlay(cardPopup);
+//  closePopupOverlay(popupImage);
+//  closePopupOverlay(profilePopup);
+//  closePopupOverlay(cardPopup);
 // popupImage.addEventListener('click', () => {
 //   // закрыть форму
 //   closePopup(popupImage);
@@ -97,6 +98,19 @@ function closePopupEscape(evt) {
   }
 }
 
+// overlay
+
+// popup.forEach((popup) => {
+// 	popup.addEventListener('click', (evt) => evt.target === popup ? closePopup(popup) : '')
+// });
+
+popup.forEach((popup) => {
+	popup.addEventListener('click', (evt) => {
+    if (evt.target === popup) {
+      return closePopup(popup);
+    }
+  });
+});
 
 
 
