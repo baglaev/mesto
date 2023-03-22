@@ -20,7 +20,6 @@ const enableButton = (submitButton, validSubmitButtonClass) => {
 
 const checkInputValidity = (input, errorClassTemplate, activeErrorClass) => {
     const errorTextElement = document.querySelector(`${errorClassTemplate}${input.name}`)
-    console.log(errorTextElement)
     if (!input.validity.valid) {
         showInputError(errorTextElement, input.validationMessage, activeErrorClass);
        
@@ -29,8 +28,12 @@ const checkInputValidity = (input, errorClassTemplate, activeErrorClass) => {
     }
 }
 
-const toggleButtonState = (submitButton, validSubmitButtonClass) => {
-    if (true) {
+const hasInvalidInput = (inputList) => {
+    return Array.from(inputList).some((input) => !input.validity.valid);
+}
+
+const toggleButtonState = (submitButton, validSubmitButtonClass, inputList) => {
+    if (!hasInvalidInput(inputList)) {
         enableButton(submitButton, validSubmitButtonClass);
     } else {
         disableButton(submitButton, validSubmitButtonClass);
@@ -45,7 +48,7 @@ const setEventListeners = (profileFormVal, inputList, errorClassTemplate, active
     inputList.forEach((input) => {
         input.addEventListener('input', (event) => {
             checkInputValidity(input, errorClassTemplate, activeErrorClass);
-            toggleButtonState(submitButton, validSubmitButtonClass);
+            toggleButtonState(submitButton, validSubmitButtonClass, inputList);
         });
     });
 }
