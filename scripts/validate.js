@@ -67,5 +67,5 @@ enableValudation({
     errorClassTemplate: '.popup__input-error_type_',
     activeErrorClass: 'popup__input-error',
     submitButtonSelector: '.popup__button-save',
-    validSubmitButtonClass:'popup__button-save_disabled'
+    validSubmitButtonClass:'popup__button-save_active'
 });
