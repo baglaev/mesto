@@ -38,9 +38,9 @@
             <button class="popup__button-close" type="button"></button>
             <form class="popup__form" name="form-edit">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <input type="text" name="user-name" class="popup__input popup__input_profile_name" placeholder="Имя" minlength="2" maxlength="40" required>
+                <input type="text" name="profile-name" class="popup__input popup__input_profile_name" placeholder="Имя" minlength="2" maxlength="40" required>
                 <span class="popup__input-error popup__input-error_type_profile-name"></span>
-                <input type="text" name="user-occupation" class="popup__input popup__input_profile_occupation" placeholder="Должность" minlength="2" maxlength="200" required>
+                <input type="text" name="profile-occupation" class="popup__input popup__input_profile_occupation" placeholder="Должность" minlength="2" maxlength="200" required>
                 <span class="popup__input-error popup__input-error_type_profile-occupation"></span>
                 <button type="submit" class="popup__button-save">Сохранить</button>
             </form>
@@ -50,12 +50,14 @@
     <div class="popup popup-card">
         <div class="popup__container">
             <button class="popup__button-close" type="button"></button>
+            <h2 class="popup__title">Новое место</h2>
             <form class="popup__form" name="form-edit" novalidate>
-                <h2 class="popup__title">Новое место</h2>
-                <input type="text" name="name" class="popup__input popup__input_image_name" placeholder="Название" minlength="2" maxlength="30" required>
-                <span class="popup__input-error popup__input-error_type_name"></span>
-                <input type="url" name="url" class="popup__input popup__input_image_url" placeholder="Ссылка на картинку" required>
-                <span class="popup__input-error popup__input-error_type_url"></span>
+                <div class="popup__field">
+                    <input type="text" name="name" class="popup__input popup__input_image_name" placeholder="Название" minlength="2" maxlength="30" required>
+                    <span class="popup__input-error popup__input-error_type_name"></span>
+                    <input type="url" name="url" class="popup__input popup__input_image_url" placeholder="Ссылка на картинку" required>
+                    <span class="popup__input-error popup__input-error_type_url"></span>
+                </div>
                 <button type="submit" class="popup__button-save">Сохранить</button>
             </form>
         </div>

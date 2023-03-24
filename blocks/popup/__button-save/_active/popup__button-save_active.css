@@ -42,7 +42,7 @@
     line-height: 22px;
     text-align: center;
     color: #FFFFFF;
-    margin-top: 18px;
+    /* margin-top: 18px; */
     width: 100%;
     min-height: 50px;
     padding: 0;
@@ -59,7 +59,7 @@
     .popup__button-save_active {
         font-size: 14px;
         line-height: 17px;
-        margin-top: 15px;
+        /* margin-top: 15px; */
         min-height: 46px;
     }
     
