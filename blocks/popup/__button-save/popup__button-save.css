@@ -1,49 +1,15 @@
-/* .popup__button-save {
-    background: #000000;
-    border-radius: 2px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    text-align: center;
-    color: #FFFFFF;
-    margin-top: 18px;
-    width: 100%;
-    min-height: 50px;
-    padding: 0;
-    border: none;
-}
-
-.popup__button-save:hover {
-    background-color: rgba(0, 0, 0, .8);
-    cursor: pointer;
-}
-
-@media screen and (max-width: 650px) {
-    .popup__button-save {
-        font-size: 14px;
-        line-height: 17px;
-        margin-top: 15px;
-        min-height: 46px;
-    }
-    
-} */
-
-
 .popup__button-save {
     background: #FFFFFF;
-    
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     text-align: center;
     color: #000000;
-    /* margin-top: 18px; */
+    margin-top: 14px;
     width: 100%;
     min-height: 50px;
     padding: 0;
-    
     opacity: .2;
     border: 1px solid #000000;
     border-radius: 2px;
@@ -58,7 +24,7 @@
     .popup__button-save {
         font-size: 14px;
         line-height: 17px;
-        /* margin-top: 15px; */
+        margin-top: 11px;
         min-height: 46px;
     }
     

@@ -50,7 +50,6 @@ const setEventListeners = (inputList, {errorClassTemplate, activeErrorClass, val
     });
 };
 
-// const enableValidation = (config) => {
 const enableValidation = ({formSelector, inputSelector, submitButtonSelector, ...config}) => {
 	const formList = Array.from(document.querySelectorAll(formSelector));
 	formList.forEach((form) => {

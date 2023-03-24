@@ -25,10 +25,10 @@ const initialCards = [
   }
 ];
 
-const popup = document.querySelectorAll('.popup');
+const popups = document.querySelectorAll('.popup');
 const editProfileButton = document.querySelector('.profile__button-edit');
 const profilePopup = document.querySelector('.popup-profile');
-const profileForm = document.querySelector('.popup__form');
+const profileForm = profilePopup.querySelector('.popup__form');
 const userNameElement = document.querySelector('.profile__title');
 const userOccupationElement = document.querySelector('.profile__job-title');
 const nameInput = document.querySelector('.popup__input_profile_name');
@@ -66,32 +66,6 @@ editPopupCloseButton.addEventListener('click', () => {
   closePopup(profilePopup);
 });
 
-// новый код к 6 пр
-
-// document.addEventListener('keydown', function(event) {
-// 	if (event.key == 27) { // код клавиши Escape, но можно использовать e.key
-// 		popup.classList.remove('popup_opened');
-// 	}
-// });
-
-// function closePopupOverlay(popup) {
-//   popup.addEventListener('click', () => {
-//     if (popup.contains())
-//     closePopup(popup);
-//   });
-//  }
-
-//  closePopupOverlay(popupImage);
-//  closePopupOverlay(profilePopup);
-//  closePopupOverlay(cardPopup);
-// popupImage.addEventListener('click', () => {
-//   // закрыть форму
-//   closePopup(popupImage);
-// });
-
-
-// esc
-
 function closePopupEscape(evt) {
 
   if (evt.key === 'Escape') {
@@ -100,23 +74,13 @@ function closePopupEscape(evt) {
   }
 }
 
-// overlay
-
-// popup.forEach((popup) => {
-// 	popup.addEventListener('click', (evt) => evt.target === popup ? closePopup(popup) : '')
-// });
-
-popup.forEach((popup) => {
-	popup.addEventListener('click', (evt) => {
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
     if (evt.target === popup) {
       return closePopup(popup);
     }
   });
 });
-
-
-
-// ----------------------------------------------------------
 
 function handleProfileSubmit(evt) {
   evt.preventDefault();

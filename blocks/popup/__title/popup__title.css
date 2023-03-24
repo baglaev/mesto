@@ -1,24 +1,3 @@
-/* .popup__title {
-    font-style: normal;
-    font-weight: 900;
-    font-size: 24px;
-    line-height: 29px;
-    color: #000000;
-    max-width: 330px;
-    /* margin: 0 0 47px 0; */
-    /* margin: 0;
-} */ 
-
-/* @media screen and (max-width: 650px) {
-    .popup__title {
-        font-size: 18px;
-        line-height: 22px;
-        min-width: 238px;
-        margin-bottom: 75px;
-    }
-    
-} */
-
 .popup__title {
     font-style: normal;
     font-weight: 900;
