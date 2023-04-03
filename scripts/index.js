@@ -167,3 +167,79 @@ function handleCardSubmit(event) {
   createCardNew(card);
   closePopup(cardPopup);
 }
+
+
+// новый код к ПР7 
+
+// !обязательно учесть, что все переменные будут приватные!
+
+class Card {
+  constructor(data, cardTemplateSelector, handleCardClick) {
+    this.name = data.name;
+    this.link = data.link;
+    this.cardTemplateSelector = cardTemplateSelector;
+    this.handleCardClick = handleCardClick;
+    this.element = undefined; // можно было не объявлять
+  }
+
+  _getTemplate() {
+    const cardElement = document
+      .querySelector(this.cardTemplateSelector)
+      .content
+      .querySelector('.element')
+      .cloneNode(true);
+
+    return cardElement;
+  }
+
+  _toggleCardLike() {
+    this.likeButton.classList.toggle('element__button-like_active');
+  }
+
+  _deleteCard() {
+    // this.deleteButton.button.closest('.element').remove(); // мой вариант
+    this.element.remove(); // вариант наставника
+  }
+
+  // нужно проверять, делал сам
+  _openImage() {
+    this.imagePhoto.src = this.link;
+    this.imagePhoto.alt = this.name;
+    this.imagePopupTitle.textContent = item.name;
+    openPopup(popupImage);
+  }
+
+  _setEventListeners() {
+    this.likeButton = addEventListener('click', () => {
+      this._toggleCardLike();
+    });
+
+    this.deleteButton = addEventListener('click', () => {
+      this._deleteCard();
+    });
+
+    this.openImageButton = addEventListener('click', () => {
+      this._openImage();
+    });
+  }
+
+  generateCard() {
+    this.element = this._getTemplate();
+    this.cardPicture = this.element.querySelector('.elemnt__image');
+    this.cardPicture.src = this.link;
+    this.cardPicture.alt = this.name;
+    this.element.querySelector('.element__name').textContent = this.name;
+    this.likeButton.querySelector('.element__button-like');
+    this.deleteButton.querySelector('.element__button-delete');
+
+    this._setEventListeners();
+
+    return this.element;
+  }
+}
+
+data.forEach(card => {
+  const card = new Card(card, '#cardTemplate', handleCardClick);
+})
+
+const cardItem = new Card(data, '#cardTemplate', handleCardClick);
