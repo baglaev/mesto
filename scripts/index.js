@@ -96,43 +96,51 @@ function handleProfileSubmit(evt) {
 
 profileForm.addEventListener('submit', handleProfileSubmit);
 
-function getCard(item) {
-  const cardElement = cardTemplate.content.cloneNode(true);
-  const cardName = cardElement.querySelector('.element__name');
-  const cardImage = cardElement.querySelector('.element__image');
-  const deleteButton = cardElement.querySelector('.element__button-delete');
-  const likeButton = cardElement.querySelector('.element__button-like');
-  cardName.textContent = item.name;
-  cardImage.addEventListener('click', openImage);
-  cardImage.setAttribute('src', item.link);
-  cardImage.setAttribute('alt', item.name);
-  deleteButton.addEventListener('click', deleteCard);
-  likeButton.addEventListener('click', toggleLike);
-  imagePopupCloseButton.addEventListener('click', () => {
-    closePopup(popupImage);
-  });
 
-  function openImage() {
-    imagePhoto.src = item.link;
-    imagePhoto.alt = item.name;
-    imagePopupTitle.textContent = item.name;
-    openPopup(popupImage);
-  };
 
-  return cardElement;
-};
+const cardElement = cardTemplate.content.cloneNode(true);
+const likeButton = cardElement.querySelector('.element__button-like');
+const deleteButton = cardElement.querySelector('.element__button-delete');
 
-function createCardNew(card) {
-  const newCard = getCard(card);
-  elements.prepend(newCard);
-};
+// создание карточки
 
-function toggleLike(event) {
-  const likeButtonActive = event.target;
-  likeButtonActive.classList.toggle('element__button-like_active');
-};
+// function getCard(item) {
+//   const cardElement = cardTemplate.content.cloneNode(true);
+//   const cardName = cardElement.querySelector('.element__name');
+//   const cardImage = cardElement.querySelector('.element__image');
+//   const deleteButton = cardElement.querySelector('.element__button-delete');
+//   const likeButton = cardElement.querySelector('.element__button-like');
+//   cardName.textContent = item.name;
+//   cardImage.addEventListener('click', openImage);
+//   cardImage.setAttribute('src', item.link);
+//   cardImage.setAttribute('alt', item.name);
+//   deleteButton.addEventListener('click', deleteCard);
+//   likeButton.addEventListener('click', toggleLike);
+//   imagePopupCloseButton.addEventListener('click', () => {
+//     closePopup(popupImage);
+//   });
 
-initialCards.forEach(createCardNew);
+//   function openImage() {
+//     imagePhoto.src = item.link;
+//     imagePhoto.alt = item.name;
+//     imagePopupTitle.textContent = item.name;
+//     openPopup(popupImage);
+//   };
+
+//   return cardElement;
+// };
+
+// function createCardNew(card) {
+//   const newCard = getCard(card);
+//   elements.prepend(newCard);
+// };
+
+// function toggleLike(event) {
+//   const likeButtonActive = event.target;
+//   likeButtonActive.classList.toggle('element__button-like_active');
+// };
+
+// initialCards.forEach(createCardNew);
 
 function deleteCard(event) {
   const button = event.target;
@@ -164,7 +172,8 @@ function handleCardSubmit(event) {
   };
   formCard.reset();
  
-  createCardNew(card);
+  // createCardNew(card);
+  
   closePopup(cardPopup);
 }
 
@@ -174,12 +183,12 @@ function handleCardSubmit(event) {
 // !обязательно учесть, что все переменные будут приватные!
 
 class Card {
-  constructor(data, cardTemplateSelector, handleCardClick) {
+  constructor(data, cardTemplateSelector,) {
     this.name = data.name;
     this.link = data.link;
     this.cardTemplateSelector = cardTemplateSelector;
-    this.handleCardClick = handleCardClick;
-    this.element = undefined; // можно было не объявлять
+    // this._openImage = openImage;
+    // this.element = undefined; // можно было не объявлять
   }
 
   _getTemplate() {
@@ -202,12 +211,12 @@ class Card {
   }
 
   // нужно проверять, делал сам
-  _openImage() {
-    this.imagePhoto.src = this.link;
-    this.imagePhoto.alt = this.name;
-    this.imagePopupTitle.textContent = item.name;
-    openPopup(popupImage);
-  }
+  // _openImage() {
+  //   this.imagePhoto.src = this.link;
+  //   this.imagePhoto.alt = this.name;
+  //   this.imagePopupTitle.textContent = this.name;
+  //   // openPopup(popupImage);
+  // }
 
   _setEventListeners() {
     this.likeButton = addEventListener('click', () => {
@@ -225,7 +234,7 @@ class Card {
 
   generateCard() {
     this.element = this._getTemplate();
-    this.cardPicture = this.element.querySelector('.elemnt__image');
+    this.cardPicture = this.element.querySelector('.element__image');
     this.cardPicture.src = this.link;
     this.cardPicture.alt = this.name;
     this.element.querySelector('.element__name').textContent = this.name;
@@ -238,8 +247,10 @@ class Card {
   }
 }
 
-data.forEach(card => {
-  const card = new Card(card, '#cardTemplate', handleCardClick);
+initialCards.forEach((card) => {
+  const newCard = new Card(card, '#cardTemplate');
+  console.log(newCard)
+  elements.prepend(newCard);
 })
 
-const cardItem = new Card(data, '#cardTemplate', handleCardClick);
+const cardItem = new Card(initialCards, '#cardTemplate');
