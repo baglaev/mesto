@@ -46,6 +46,13 @@ const addCardButton = document.querySelector('.profile__button-add');
 const closeCardButton = cardPopup.querySelector('.popup__button-close');
 const formCard = cardPopup.querySelector('.popup__form');
 
+
+// константы к пр7
+
+const cardElement = cardTemplate.content.cloneNode(true);
+const likeButton = cardElement.querySelector('.element__button-like');
+const deleteButton = cardElement.querySelector('.element__button-delete');
+
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEscape);
@@ -96,11 +103,6 @@ function handleProfileSubmit(evt) {
 
 profileForm.addEventListener('submit', handleProfileSubmit);
 
-
-
-const cardElement = cardTemplate.content.cloneNode(true);
-const likeButton = cardElement.querySelector('.element__button-like');
-const deleteButton = cardElement.querySelector('.element__button-delete');
 
 // создание карточки
 
