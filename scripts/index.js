@@ -185,7 +185,7 @@ function handleCardSubmit(event) {
 // !обязательно учесть, что все переменные будут приватные!
 
 class Card {
-  constructor(data, cardTemplateSelector,) {
+  constructor(data, cardTemplateSelector) {
     this.name = data.name;
     this.link = data.link;
     this.cardTemplateSelector = cardTemplateSelector;
@@ -240,8 +240,8 @@ class Card {
     this.cardPicture.src = this.link;
     this.cardPicture.alt = this.name;
     this.element.querySelector('.element__name').textContent = this.name;
-    this.likeButton.querySelector('.element__button-like');
-    this.deleteButton.querySelector('.element__button-delete');
+    // this.likeButton.querySelector('.element__button-like');
+    // this.deleteButton.querySelector('.element__button-delete');
 
     this._setEventListeners();
 
@@ -251,8 +251,7 @@ class Card {
 
 initialCards.forEach((card) => {
   const newCard = new Card(card, '#cardTemplate');
-  console.log(newCard)
-  elements.prepend(newCard);
+  elements.prepend(newCard.generateCard());
 })
 
 const cardItem = new Card(initialCards, '#cardTemplate');
