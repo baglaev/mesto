@@ -256,3 +256,5 @@ initialCards.forEach((card) => {
 })
 
 const cardItem = new Card(initialCards, '#cardTemplate');
+
+// для коммита в ветке девелоп
