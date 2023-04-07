@@ -123,12 +123,20 @@ profileForm.addEventListener('submit', handleProfileSubmit);
 //     closePopup(popupImage);
 //   });
 
-//   function openImage() {
-//     imagePhoto.src = item.link;
-//     imagePhoto.alt = item.name;
-//     imagePopupTitle.textContent = item.name;
-//     openPopup(popupImage);
-//   };
+  // function openImage() {
+  //   imagePhoto.src = item.link;
+  //   imagePhoto.alt = item.name;
+  //   imagePopupTitle.textContent = item.name;
+  //   openPopup(popupImage);
+  // };
+
+function openImage(name, link) {
+  imagePhoto.src = link;
+  imagePhoto.alt = name;
+  imagePopupTitle.textContent = name;
+  openPopup(popupImage);
+};
+
 
 //   return cardElement;
 // };
@@ -186,12 +194,12 @@ function handleCardSubmit(event) {
 // !обязательно учесть, что все переменные будут приватные!
 
 class Card {
-  constructor(data, cardTemplateSelector) {
+  constructor(data, cardTemplateSelector, openImage) {
     this.name = data.name;
     this.link = data.link;
     this.cardTemplateSelector = cardTemplateSelector;
-    // this._openImage = openImage;
-    // this.element = undefined; // можно было не объявлять
+    this._openImage = openImage;
+    this.element = undefined; // можно было не объявлять
   }
 
   _getTemplate() {
@@ -211,9 +219,7 @@ class Card {
     this.cardPicture.alt = this.name;
     this.element.querySelector('.element__name').textContent = this.name;
     this.likeButton = this.element.querySelector('.element__button-like');
-    console.log(this.likeButton)
     this.deleteButton= this.element.querySelector('.element__button-delete');
-    console.log(this.deleteButton)
 
     this._setEventListeners();
 
@@ -246,17 +252,17 @@ class Card {
       this._deleteCard();
     });
 
-    // this.openImageButton.addEventListener('click', () => {
-    //   this._openImage();
-    // });
+    this.cardPicture.addEventListener('click', () => {
+      this._openImage(this.name, this.link);
+    });
   }
 }
 
 initialCards.forEach((card) => {
-  const newCard = new Card(card, '#cardTemplate');
+  const newCard = new Card(card, '#cardTemplate', openImage);
   elements.prepend(newCard.generateCard());
 });
 
-const cardItem = new Card(initialCards, '#cardTemplate');
+const cardItem = new Card(initialCards, '#cardTemplate', openImage);
 
 // для коммита в ветке девелоп
