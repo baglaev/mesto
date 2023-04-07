@@ -263,6 +263,6 @@ initialCards.forEach((card) => {
   elements.prepend(newCard.generateCard());
 });
 
-const cardItem = new Card(initialCards, '#cardTemplate', openImage);
+// const cardItem = new Card(initialCards, '#cardTemplate', openImage);
 
 // для коммита в ветке девелоп
