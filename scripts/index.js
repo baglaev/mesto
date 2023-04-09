@@ -184,8 +184,14 @@ function handleCardSubmit(event) {
   formCard.reset();
  
   // createCardNew(card);
+  elements.prepend(createCard(card));
   
   closePopup(cardPopup);
+}
+
+function createCard(card) {
+  const cardElement = new Card(card, '#cardTemplate', openImage);
+  return cardElement.generateCard();
 }
 
 
@@ -231,7 +237,6 @@ class Card {
   }
 
   _deleteCard() {
-    // this.deleteButton.button.closest('.element').remove(); // мой вариант
     this.element.remove(); // вариант наставника
   }
 
