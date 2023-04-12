@@ -76,13 +76,11 @@ enableValidation({
 
 class FormValidator {
     constructor(classSelector, formElement) {
-        this.classSelector = classSelector;
-        this.formElement = formElement;
+        this._classSelector = classSelector;
+        this._formElement = formElement;
 
-    }
-
-    enableValidation() {
-        
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._classSelector.inputSelector));
+        this._submitButton = this._formElemen.querySelector(this._classSelector.submitButtonSelector);
     }
 
     showInputError(input, errorTextElement, validationMessage, activeErrorClass, errorClassUnderline) {
@@ -97,14 +95,14 @@ class FormValidator {
         errorTextElement.textContent = '';
     }
 
-    disableButton(submitButton, validSubmitButtonClass) {
-        submitButton.classList.remove(validSubmitButtonClass);
-        submitButton.disabled = true;
+    disableButton() {
+        this._submitButton.classList.remove(this._classSelector.validSubmitButtonClass);
+        this._submitButton.disabled = true;
     }
 
-    enableButton(submitButton, validSubmitButtonClass) {
-        submitButton.classList.add(validSubmitButtonClass);
-        submitButton.disabled = false;
+    enableButton() {
+        this._submitButton.classList.add(this._classSelector.validSubmitButtonClass);
+        this._submitButton.disabled = false;
     }
 
     checkInputValidity(input, errorClassTemplate, activeErrorClass, errorClassUnderline) {
@@ -135,5 +133,9 @@ class FormValidator {
                 toggleButtonState(submitButton, validSubmitButtonClass, inputList);
             });
         });
+    }
+
+    enableValidation() {
+
     }
 }
