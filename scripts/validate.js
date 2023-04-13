@@ -50,20 +50,30 @@
 //     });
 // };
 
-const enableValidation = ({formSelector, inputSelector, submitButtonSelector, ...config}) => {
-	const formList = Array.from(document.querySelectorAll(formSelector));
-	formList.forEach((form) => {
-		const inputList = form.querySelectorAll(inputSelector);
-		const submitButton = form.querySelector(submitButtonSelector);
+// const enableValidation = ({formSelector, inputSelector, submitButtonSelector, ...config}) => {
+// 	const formList = Array.from(document.querySelectorAll(formSelector));
+// 	formList.forEach((form) => {
+// 		const inputList = form.querySelectorAll(inputSelector);
+// 		const submitButton = form.querySelector(submitButtonSelector);
 
-		setEventListeners(inputList, config, submitButton);
-		form.addEventListener('reset', () => {
-		disableButton(submitButton, config.validSubmitButtonClass)
-		});
-	});
-};
+// 		setEventListeners(inputList, config, submitButton);
+// 		form.addEventListener('reset', () => {
+// 		disableButton(submitButton, config.validSubmitButtonClass)
+// 		});
+// 	});
+// };
 
-enableValidation({
+// enableValidation({
+//     formSelector: '.popup__form',
+//     inputSelector: '.popup__input',
+//     errorClassTemplate: '.popup__input-error_type_',
+//     activeErrorClass: 'popup__input-error_visible',
+//     submitButtonSelector: '.popup__button-save',
+//     validSubmitButtonClass:'popup__button-save_active',
+// 	errorClassUnderline: 'popup__input_border-underline'
+// });
+
+const classSelector = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     errorClassTemplate: '.popup__input-error_type_',
@@ -71,7 +81,7 @@ enableValidation({
     submitButtonSelector: '.popup__button-save',
     validSubmitButtonClass:'popup__button-save_active',
 	errorClassUnderline: 'popup__input_border-underline'
-});
+}
 
 
 class FormValidator {
@@ -139,3 +149,9 @@ class FormValidator {
 
     }
 }
+
+const profilePopupValidation = new FormValidator(classSelector, profilePopup);
+const cardPopupValidation = new FormValidator(classSelector, cardPopup);
+
+profilePopupValidation.enableValidation();
+cardPopupValidation.enableValidation();
