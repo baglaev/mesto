@@ -90,7 +90,7 @@ class FormValidator {
         this._formElement = formElement;
 
         this._inputList = Array.from(this._formElement.querySelectorAll(this._classSelector.inputSelector));
-        this._submitButton = this._formElemen.querySelector(this._classSelector.submitButtonSelector);
+        this._submitButton = this._formElement.querySelector(this._classSelector.submitButtonSelector);
     }
 
     showInputError(input, errorTextElement, validationMessage, activeErrorClass, errorClassUnderline) {
@@ -146,12 +146,18 @@ class FormValidator {
     }
 
     enableValidation() {
-
+        setEventListeners(inputList, config, submitButton);
+		form.addEventListener('reset', () => {
+		disableButton(submitButton, config.validSubmitButtonClass)
+		});
     }
 }
 
 const profilePopupValidation = new FormValidator(classSelector, profilePopup);
 const cardPopupValidation = new FormValidator(classSelector, cardPopup);
+
+console.log(profilePopupValidation);
+console.log(cardPopupValidation);
 
 profilePopupValidation.enableValidation();
 cardPopupValidation.enableValidation();
