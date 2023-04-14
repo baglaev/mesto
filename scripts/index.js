@@ -237,16 +237,8 @@ class Card {
   }
 
   _deleteCard() {
-    this.element.remove(); // вариант наставника
+    this.element.remove();
   }
-
-  // нужно проверять, делал сам
-  // _openImage() {
-  //   this.imagePhoto.src = this.link;
-  //   this.imagePhoto.alt = this.name;
-  //   this.imagePopupTitle.textContent = this.name;
-  //   // openPopup(popupImage);
-  // }
 
   _setEventListeners() {
     this.likeButton.addEventListener('click', () => {

@@ -124,8 +124,8 @@ class FormValidator {
         };
     }
 
-    hasInvalidInput(inputList) {
-        return Array.from(inputList).some((input) => !input.validity.valid);
+    hasInvalidInput() {
+        return Array.from(this._inputList).some((input) => !input.validity.valid);
     }
 
     toggleButtonState(submitButton, validSubmitButtonClass, inputList) {
@@ -137,18 +137,32 @@ class FormValidator {
     }
 
     setEventListeners(inputList, {errorClassTemplate, activeErrorClass, validSubmitButtonClass, errorClassUnderline}, submitButton) {
-        inputList.forEach((input) => {
+        this._inputList.forEach((input) => {
             input.addEventListener('input', (event) => {
-                checkInputValidity(input, errorClassTemplate, activeErrorClass, errorClassUnderline);
-                toggleButtonState(submitButton, validSubmitButtonClass, inputList);
+                this.checkInputValidity(input, errorClassTemplate, activeErrorClass, errorClassUnderline);
+                this.toggleButtonState(this._submitButtonsubmitButton, validSubmitButtonClass, inputList);
             });
         });
     }
 
+    // this._inputList.forEach((input) => {
+    //     this._setEventListeners(this._inputList, input, config, this._submitButton);
+  
+    //     this._form.addEventListener('reset', () => {
+    //       this._disableButton(this._submitButton, this.config.validSubmitButtonClass);
+    //     });
+    //   });
+
+
+
+
     enableValidation() {
-        setEventListeners(inputList, config, submitButton);
-		form.addEventListener('reset', () => {
-		disableButton(submitButton, config.validSubmitButtonClass)
+        this._inputList.forEach((input) => {
+            this._setEventListeners(this._inputList, input, this._submitButton);
+		    this._formElement.addEventListener('reset', () => {
+            this.setEventListeners(this._inputList, input, this._submitButton);
+		    this._disableButton(this._submitButton, this._classSelector.validSubmitButtonClass);
+            });
 		});
     }
 }
