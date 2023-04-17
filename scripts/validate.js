@@ -93,10 +93,10 @@ class FormValidator {
         this._submitButton = this._formElement.querySelector(this._classSelector.submitButtonSelector);
     }
 
-    showInputError(input, errorTextElement, validationMessage, activeErrorClass, errorClassUnderline) {
-        input.classList.add(errorClassUnderline);
+    showInputError(input, errorTextElement, validationMessage) {
+        input.classList.add(this._classSelector.errorClassUnderline);
         errorTextElement.textContent = validationMessage;
-        errorTextElement.classList.add(activeErrorClass);
+        errorTextElement.classList.add(this._classSelector.activeErrorClass);
     }
 
     hideInputError(input, errorTextElement, activeErrorClass, errorClassUnderline) {
@@ -115,8 +115,8 @@ class FormValidator {
         this._submitButton.disabled = false;
     }
 
-    checkInputValidity(input, errorClassTemplate, activeErrorClass, errorClassUnderline) {
-        const errorTextElement = document.querySelector(`${errorClassTemplate}${input.name}`);
+    checkInputValidity(input, activeErrorClass, errorClassUnderline) {
+        const errorTextElement = document.querySelector(`${this._classSelector.errorClassTemplate}${input.name}`);
         if (!input.validity.valid) {
             showInputError(input, errorTextElement, input.validationMessage, activeErrorClass, errorClassUnderline);
         } else {
@@ -128,19 +128,19 @@ class FormValidator {
         return Array.from(this._inputList).some((input) => !input.validity.valid);
     }
 
-    toggleButtonState(submitButton, validSubmitButtonClass, inputList) {
-        if (!hasInvalidInput(inputList)) {
-            enableButton(submitButton, validSubmitButtonClass);
+    toggleButtonState() {
+        if (!this.hasInvalidInput(this._inputList)) {
+            this.enableButton(this._submitButton, this._classSelector.validSubmitButtonClass);
         } else {
-            disableButton(submitButton, validSubmitButtonClass);
+            this.disableButton(this._submitButton, this._classSelector.validSubmitButtonClass);
         };
     }
 
-    setEventListeners(inputList, {errorClassTemplate, activeErrorClass, validSubmitButtonClass, errorClassUnderline}, submitButton) {
+    setEventListeners() {
         this._inputList.forEach((input) => {
             input.addEventListener('input', (event) => {
-                this.checkInputValidity(input, errorClassTemplate, activeErrorClass, errorClassUnderline);
-                this.toggleButtonState(this._submitButtonsubmitButton, validSubmitButtonClass, inputList);
+                this.checkInputValidity(input, this._classSelector);
+                this.toggleButtonState(this._submitButton, this._classSelector.validSubmitButtonClass, this._inputList);
             });
         });
     }
