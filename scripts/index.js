@@ -1,4 +1,4 @@
-import  { popups, editProfileButton, profilePopup, profileForm, userNameElement, userOccupationElement, nameInput, occupationInput, editPopupCloseButton, elements, popupImage, imagePopupCloseButton, imagePopupTitle, imagePhoto, cardPopup, addCardButton, closeCardButton, formCard, initialCards, classSelector } from './constants.js';
+import  { popups, editProfileButton, profilePopup, profileForm, userNameElement, userOccupationElement, nameInput, occupationInput, editPopupCloseButton, elements, popupImage, imagePopupCloseButton, imagePopupTitle, imagePhoto, cardPopup, addCardButton, closeCardButton, formCard, inputImage, inputImageUrl, initialCards, classSelector } from './constants.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
@@ -34,6 +34,7 @@ editProfileButton.addEventListener('click', () => {
   nameInput.value = userNameElement.textContent;
   occupationInput.value = userOccupationElement.textContent;
   openPopup(profilePopup);
+  profilePopupValidation.resetValidation();
 });
 
 editPopupCloseButton.addEventListener('click', () => {
@@ -69,9 +70,11 @@ function handleProfileSubmit(evt) {
 
 profileForm.addEventListener('submit', handleProfileSubmit);
 
-addCardButton.addEventListener('click', () => {
-  openPopup(cardPopup);
-});
+// addCardButton.addEventListener('click', () => {
+//   openPopup(cardPopup);
+// });
+
+addCardButton.addEventListener('click', openPopup(cardPopup));
 
 closeCardButton.addEventListener('click', () => {
   closePopup(cardPopup);
@@ -83,12 +86,9 @@ formCard.addEventListener('submit', handleCardSubmit);
 
 function handleCardSubmit(event) {
   event.preventDefault();
-  const form = event.target;
-  const inputImage = form.querySelector('.popup__input_image_name').value;
-  const inputImageUrl = form.querySelector('.popup__input_image_url').value;
   const card = {
-    name: inputImage,
-    link: inputImageUrl
+    name: inputImage.value,
+    link: inputImageUrl.value
   };
 
   formCard.reset();
@@ -98,10 +98,17 @@ function handleCardSubmit(event) {
 
 function createCard(card) {
   const cardElement = new Card(card, '#cardTemplate', openImage);
-  return cardElement.generateCard();
+  // return cardElement.generateCard();
+  return elements.prepend(cardElement.generateCard());
 }
 
+// initialCards.forEach((card) => {
+//   // const newCard = new Card(card, '#cardTemplate', openImage);
+//   elements.prepend(newCard.generateCard());
+// });
+
 initialCards.forEach((card) => {
-  const newCard = new Card(card, '#cardTemplate', openImage);
-  elements.prepend(newCard.generateCard());
+  // const newCard = new Card(card, '#cardTemplate', openImage);
+  createCard(card);
+  // elements.prepend(cardElement.generateCard());
 });

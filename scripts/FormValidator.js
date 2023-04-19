@@ -51,6 +51,14 @@ export class FormValidator {
         };
     }
 
+    resetValidation() {
+        this._inputList.forEach((input) => {
+            // const errorTextElement = document.querySelector(`${this._classSelector.errorClassTemplate}${input.name}`);
+            // this._hideInputError(errorTextElement);
+            this._hideInputError(input);
+        })
+    }
+
     _setEventListeners() {
         this._inputList.forEach((input) => {
             input.addEventListener('input', (event) => {

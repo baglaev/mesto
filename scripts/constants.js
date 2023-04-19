@@ -16,6 +16,8 @@ const cardPopup = document.querySelector('.popup-card');
 const addCardButton = document.querySelector('.profile__button-add');
 const closeCardButton = cardPopup.querySelector('.popup__button-close');
 const formCard = cardPopup.querySelector('.popup__form');
+const inputImage = cardPopup.querySelector('.popup__input_image_name');
+const inputImageUrl = cardPopup.querySelector('.popup__input_image_url');
 
 const initialCards = [
     {
@@ -51,7 +53,7 @@ const classSelector = {
   activeErrorClass: 'popup__input-error_visible',
   submitButtonSelector: '.popup__button-save',
   validSubmitButtonClass:'popup__button-save_active',
-errorClassUnderline: 'popup__input_border-underline'
+  errorClassUnderline: 'popup__input_border-underline'
 }
 
-export { popups, editProfileButton, profilePopup, profileForm, userNameElement, userOccupationElement, nameInput, occupationInput, editPopupCloseButton, elements, popupImage, imagePopupCloseButton, imagePopupTitle, imagePhoto, cardPopup, addCardButton, closeCardButton, formCard, initialCards, classSelector }
+export { popups, editProfileButton, profilePopup, profileForm, userNameElement, userOccupationElement, nameInput, occupationInput, editPopupCloseButton, elements, popupImage, imagePopupCloseButton, imagePopupTitle, imagePhoto, cardPopup, addCardButton, closeCardButton, formCard, inputImage, inputImageUrl, initialCards, classSelector }
