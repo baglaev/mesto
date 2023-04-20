@@ -25,19 +25,20 @@ function openImage(name, link) {
   openPopup(popupImage);
 };
 
-imagePopupCloseButton.addEventListener('click', () => {
+imagePopupCloseButton.addEventListener('click', function() {
   closePopup(popupImage);
 });
 
 
-editProfileButton.addEventListener('click', () => {
+editProfileButton.addEventListener('click', function(evt) {
+  evt.preventDefault();
   nameInput.value = userNameElement.textContent;
   occupationInput.value = userOccupationElement.textContent;
   openPopup(profilePopup);
   profilePopupValidation.resetValidation();
 });
 
-editPopupCloseButton.addEventListener('click', () => {
+editPopupCloseButton.addEventListener('click', function() {
   closePopup(profilePopup);
 });
 
@@ -50,7 +51,7 @@ function closePopupEscape(evt) {
 }
 
 popups.forEach((popup) => {
-  popup.addEventListener('click', (evt) => {
+  popup.addEventListener('click', function(evt) {
     if (evt.target === popup) {
       return closePopup(popup);
     }
@@ -70,13 +71,13 @@ function handleProfileSubmit(evt) {
 
 profileForm.addEventListener('submit', handleProfileSubmit);
 
-// addCardButton.addEventListener('click', () => {
-//   openPopup(cardPopup);
-// });
+addCardButton.addEventListener('click', function() {
+  openPopup(cardPopup);
+});
 
-addCardButton.addEventListener('click', openPopup(cardPopup));
+// addCardButton.addEventListener('click', openPopup(cardPopup));
 
-closeCardButton.addEventListener('click', () => {
+closeCardButton.addEventListener('click', function() {
   closePopup(cardPopup);
 });
 
@@ -94,21 +95,19 @@ function handleCardSubmit(event) {
   formCard.reset();
   elements.prepend(createCard(card));
   closePopup(cardPopup);
+  cardPopupValidation.disableButton();
 }
 
 function createCard(card) {
   const cardElement = new Card(card, '#cardTemplate', openImage);
-  // return cardElement.generateCard();
-  return elements.prepend(cardElement.generateCard());
+  return cardElement.generateCard();
 }
 
 // initialCards.forEach((card) => {
-//   // const newCard = new Card(card, '#cardTemplate', openImage);
+//   const newCard = new Card(card, '#cardTemplate', openImage);
 //   elements.prepend(newCard.generateCard());
 // });
 
 initialCards.forEach((card) => {
-  // const newCard = new Card(card, '#cardTemplate', openImage);
-  createCard(card);
-  // elements.prepend(cardElement.generateCard());
+  elements.prepend(createCard(card));
 });
