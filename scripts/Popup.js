@@ -1,15 +1,15 @@
 export class Popup {
-    constructor(selectorPopup) {
-        this._selectorPopup = selectorPopup;
+    constructor(popup) {
+        this._popup = popup;
     }
 
     openPopup() {
-        this._selectorPopup.classList.add('.popup_opened');
+        this._popup.classList.add('.popup_opened');
         document.addEventListener('keydown', this._handleEscClose);
     }
 
     closePopup() {
-        this._selectorPopup.classList.remove('.popup_opened');
+        this._popup.classList.remove('.popup_opened');
         document.removeEventListener('keydown', this._handleEscClose);
     }
 
@@ -19,9 +19,9 @@ export class Popup {
           }
     }
 
-    setEventListener() {
+    setEventListeners() {
         // добавляет слушатель клика иконке закрытия попапа. Модальное окно также закрывается при клике на затемнённую область вокруг формы.
-        this._selectorPopup.addEventListener('click', (evt) => {
+        this._popup.addEventListener('click', (evt) => {
         if (evt.target === evt.currentTarget) {
             return closePopup(evt.target);
           };

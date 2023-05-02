@@ -1,6 +1,7 @@
 import  { popups, editProfileButton, profilePopup, profileForm, userNameElement, userOccupationElement, nameInput, occupationInput, editPopupCloseButton, elements, popupImage, imagePopupCloseButton, imagePopupTitle, imagePhoto, cardPopup, addCardButton, closeCardButton, formCard, inputImage, inputImageUrl, initialCards, classSelector } from './constants.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
+// import { PopupWithImage } from './PopupWithImage.js';
 
 const profilePopupValidation = new FormValidator(classSelector, profilePopup);
 const cardPopupValidation = new FormValidator(classSelector, cardPopup);
@@ -25,18 +26,22 @@ cardPopupValidation.enableValidation();
 //   }
 // }
 
-function openImage(name, link) {
-  imagePhoto.src = link;
-  imagePhoto.alt = name;
-  imagePopupTitle.textContent = name;
-  openPopup(popupImage);
-};
+// function openImage(name, link) {
+//   imagePhoto.src = link;
+//   imagePhoto.alt = name;
+//   imagePopupTitle.textContent = name;
+//   openPopup(popupImage);
+// };
 
 function clickImagePopupCloseButton() {
   closePopup(popupImage);
 }
 
 imagePopupCloseButton.addEventListener('click', clickImagePopupCloseButton);
+
+// const popupWithImage = new PopupWithImage('.')
+// popupWithImage.setEventListeners();
+
 
 function clickEditProfileButton(evt) {
   evt.preventDefault();
