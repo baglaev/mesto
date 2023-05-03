@@ -1,14 +1,16 @@
 import  { popups, editProfileButton, profilePopup, profileForm, userNameElement, userOccupationElement, nameInput, occupationInput, editPopupCloseButton, elements, popupImage, imagePopupCloseButton, imagePopupTitle, imagePhoto, cardPopup, addCardButton, closeCardButton, formCard, inputImage, inputImageUrl, initialCards, classSelector } from './constants.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
-// import { PopupWithImage } from './PopupWithImage.js';
+import { Section } from  './Section.js';
+import { PopupWithImage } from './PopupWithImage.js';
+
 
 const profilePopupValidation = new FormValidator(classSelector, profilePopup);
 const cardPopupValidation = new FormValidator(classSelector, cardPopup);
 
 profilePopupValidation.enableValidation();
 cardPopupValidation.enableValidation();
-
+// -----
 // function openPopup(popup) {
 //   popup.classList.add('popup_opened');
 //   document.addEventListener('keydown', closePopupEscape);
@@ -33,15 +35,20 @@ cardPopupValidation.enableValidation();
 //   openPopup(popupImage);
 // };
 
+// -----
+
 function clickImagePopupCloseButton() {
   closePopup(popupImage);
 }
 
 imagePopupCloseButton.addEventListener('click', clickImagePopupCloseButton);
 
+// -----
+
 // const popupWithImage = new PopupWithImage('.')
 // popupWithImage.setEventListeners();
 
+// -----
 
 function clickEditProfileButton(evt) {
   evt.preventDefault();
@@ -56,6 +63,8 @@ editProfileButton.addEventListener('click', clickEditProfileButton);
 editPopupCloseButton.addEventListener('click', function() {
   closePopup(profilePopup);
 });
+
+// -----
 
 // function closePopupEscape(evt) {
 //   if (evt.key === 'Escape') {
@@ -73,6 +82,8 @@ editPopupCloseButton.addEventListener('click', function() {
 // popups.forEach((popup) => {
 //   popup.addEventListener('click', clickClosePopupOverlay);
 // });
+
+//-----
 
 function handleProfileSubmit(evt) {
   evt.preventDefault();
@@ -117,10 +128,30 @@ function handleCardSubmit(event) {
 };
 
 function createCard(card) {
-  const cardElement = new Card(card, '#cardTemplate', openImage);
+  // const cardElement = new Card(card, '#cardTemplate', openImage);
+  const cardElement = new Card(card, '#cardTemplate');
   return cardElement.generateCard();
 };
 
-initialCards.forEach((card) => {
-  elements.prepend(createCard(card));
-});
+// initialCards.forEach((card) => {
+//   elements.prepend(createCard(card));
+// });
+
+// -----
+const openImagePopup = new PopupWithImage(popupImage);
+openImagePopup.setEventListeners();
+// -----
+
+const section = new Section({
+  items: initialCards,
+  renderer: (item) => {section.addItem(createCard(item))}},
+  '.elements');
+// функция создает карточку и возвращает её элемент в представление HTML
+// function renderCard(cardData) {
+//   const cardElement = createCard(cardData);
+//   section.addItem(cardElement);
+// }
+
+section.renderItems();
+
+// функция rendererCard будет видеть Section из замыкания и сможет добавлять в нужную секцию новые карточки
