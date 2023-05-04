@@ -1,9 +1,11 @@
 export class Card {
-    constructor(data, cardTemplateSelector, openImage) {
+    // constructor(data, cardTemplateSelector, openImage) {
+    constructor(data, cardTemplateSelector, openPopup) {
       this._name = data.name;
       this._link = data.link;
       this._cardTemplateSelector = cardTemplateSelector;
-      this._openImage = openImage;
+      // this._openImage = openImage;
+      this.openPopup = openPopup;
       this._element = undefined;
     }
   
@@ -34,8 +36,12 @@ export class Card {
         this._deleteCard();
       });
   
+      // this.cardPicture.addEventListener('click', () => {
+      //   this._openImage(this._name, this._link);
+      // });
+
       this.cardPicture.addEventListener('click', () => {
-        this._openImage(this._name, this._link);
+        this.openPopup(this._name, this._link);
       });
     }
   

@@ -1,4 +1,5 @@
 import  { popups, editProfileButton, profilePopup, profileForm, userNameElement, userOccupationElement, nameInput, occupationInput, editPopupCloseButton, elements, popupImage, imagePopupCloseButton, imagePopupTitle, imagePhoto, cardPopup, addCardButton, closeCardButton, formCard, inputImage, inputImageUrl, initialCards, classSelector } from './constants.js';
+// import { PopupWithImage } from './PopupWithImage.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 import { Section } from  './Section.js';
@@ -40,6 +41,10 @@ cardPopupValidation.enableValidation();
 function clickImagePopupCloseButton() {
   closePopup(popupImage);
 }
+
+// function clickImagePopupCloseButton() {
+//   openImage.closePopup();
+// }
 
 imagePopupCloseButton.addEventListener('click', clickImagePopupCloseButton);
 
@@ -127,9 +132,22 @@ function handleCardSubmit(event) {
   cardPopupValidation.disableButton();
 };
 
+// -----
+const openImage = new PopupWithImage(popupImage);
+openImage.setEventListeners();
+// -----
+
+function openPopupImage(name, link) {
+  openImage.openPopup(name, link);
+}
+
+// const openPopupImage = (item) => {
+//   openImage.openImage(item);
+// }
+
 function createCard(card) {
   // const cardElement = new Card(card, '#cardTemplate', openImage);
-  const cardElement = new Card(card, '#cardTemplate');
+  const cardElement = new Card(card, '#cardTemplate', openPopupImage);
   return cardElement.generateCard();
 };
 
@@ -137,10 +155,6 @@ function createCard(card) {
 //   elements.prepend(createCard(card));
 // });
 
-// -----
-const openImagePopup = new PopupWithImage(popupImage);
-openImagePopup.setEventListeners();
-// -----
 
 const section = new Section({
   items: initialCards,
