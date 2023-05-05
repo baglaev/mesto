@@ -1,9 +1,9 @@
 import  { popups, editProfileButton, profilePopup, profileForm, userNameElement, userOccupationElement, nameInput, occupationInput, editPopupCloseButton, elements, popupImage, imagePopupCloseButton, imagePopupTitle, imagePhoto, cardPopup, addCardButton, closeCardButton, formCard, inputImage, inputImageUrl, initialCards, classSelector } from './constants.js';
-// import { PopupWithImage } from './PopupWithImage.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 import { Section } from  './Section.js';
 import { PopupWithImage } from './PopupWithImage.js';
+import { PopupWithForm } from './PopupWithForm.js';
 
 
 const profilePopupValidation = new FormValidator(classSelector, profilePopup);
