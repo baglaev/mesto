@@ -2,9 +2,11 @@ import  { popups, editProfileButton, profilePopup, profileForm, userNameElement,
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 import { Section } from  './Section.js';
+import { UserInfo } from './UserInfo.js';
 import { PopupWithImage } from './PopupWithImage.js';
 import { PopupWithForm } from './PopupWithForm.js';
 
+const profileInfo = new UserInfo(userNameElement, userOccupationElement);
 
 const profilePopupValidation = new FormValidator(classSelector, profilePopup);
 const cardPopupValidation = new FormValidator(classSelector, cardPopup);
@@ -144,6 +146,8 @@ function openPopupImage(name, link) {
 // const openPopupImage = (item) => {
 //   openImage.openImage(item);
 // }
+
+// const profilePopupWithForm = new PopupWithForm()
 
 function createCard(card) {
   // const cardElement = new Card(card, '#cardTemplate', openImage);
