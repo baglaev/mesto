@@ -4,11 +4,20 @@
   "description": "Место - социальная сеть, пользователи которой могут делиться интересными и незабываемыми местами! Можно редактировать свой профиль, добавлять, оценивать и удалять карточки понравившихся мест.\r Сайт адаптивный - можно использовать на любых устройствах.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rimraf dist && webpack --mode production",
+    "dev": "webpack serve"
   },
   "author": "baglaev",
   "license": "ISC",
   "devDependencies": {
-    "webpack": "^5.82.0"
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "babel-loader": "^9.1.2",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "dependencies": {
+    "core-js": "^3.30.2"
   }
 }
