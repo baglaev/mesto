@@ -71,10 +71,6 @@ export class FormValidator {
     enableValidation() {
         this._inputList.forEach(() => {
             this._setEventListeners(this._inputList, this._submitButton);
-		    // this._formElement.addEventListener('reset', () => {
-            //     this._setEventListeners(this._inputList, this._submitButton);
-		    //     this._disableButton(this._submitButton, this._classSelector.validSubmitButtonClass);
-            // });
 		});
     }
 }
