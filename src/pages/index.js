@@ -1,12 +1,12 @@
 import './index.css';
 
-import  {editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, addCardButton, closeCardButton, initialCards, classSelector } from './constants.js.js';
-import { Card } from './Card.js.js';
+import { editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, addCardButton, closeCardButton, initialCards, classSelector } from './constants.js.js';
+import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
-import { Section } from  './Section.js.js';
-import { UserInfo } from './UserInfo.js.js';
-import { PopupWithImage } from './PopupWithImage.js.js';
-import { PopupWithForm } from './PopupWithForm.js.js';
+import { Section } from '../components/Section.js'
+import { UserInfo } from '../components/UserInfo.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
 
 const profileInfo = new UserInfo({userNameSelector: userNameElement, userOccupationSelector: userOccupationElement});
 
