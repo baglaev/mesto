@@ -1,6 +1,6 @@
 import './index.css';
 
-import { editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, addCardButton, closeCardButton, initialCards, classSelector } from '../components/constants.js';
+import { editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, addCardButton, closeCardButton, initialCards, classSelector } from '../utils/constants.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js'
