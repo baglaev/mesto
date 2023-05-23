@@ -7,16 +7,18 @@ import { Section } from '../components/Section.js'
 import { UserInfo } from '../components/UserInfo.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
+import { api } from '../components/Api.js';
 
-// fetch('https://mesto.nomoreparties.co/v1/cohort-65/cards', {
-//   headers: {
-//     authorization: '51fccd46-e08f-4063-bb9d-4ecc115dd6cc'
-//   }
-// })
-//   .then(res => res.json())
-//   .then((result) => {
-//     console.log(result);
-//   }); 
+api.getProfile()
+  .then(res => {
+    // console.log('res', res)
+    profileInfo.setUserInfo(res)
+  })
+
+api.getProfile()
+  .then(res => {
+    console.log(res)
+  })
 
 const profileInfo = new UserInfo({userNameSelector: userNameElement, userOccupationSelector: userOccupationElement});
 
