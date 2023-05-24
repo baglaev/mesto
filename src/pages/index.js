@@ -13,6 +13,7 @@ api.getProfile()
   .then(res => {
     // console.log('res', res)
     profileInfo.setUserInfo(res)
+    // console.log(profileInfo.setUserInfo(res))
   })
 
 api.getProfile()
