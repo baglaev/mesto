@@ -11,14 +11,15 @@ import { api } from '../components/Api.js';
 
 api.getProfile()
   .then(res => {
-    // console.log('res', res)
+    console.log('ответ', res)
     profileInfo.setUserInfo(res)
-    // console.log(profileInfo.setUserInfo(res))
   })
 
 api.getProfile()
-  .then(res => {
-    console.log(res)
+  .then(card => {
+    card.forEach(data => {
+      section.addItem()
+    })
   })
 
 const profileInfo = new UserInfo({userNameSelector: userNameElement, userOccupationSelector: userOccupationElement});
