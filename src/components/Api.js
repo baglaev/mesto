@@ -12,7 +12,7 @@ class Api {
         .catch(console.log)
     }
 
-    getProfile() {
+    getInitialCards() {
       return fetch(`${this._baseUrl}/cards`, {
           headers: this._headers
       })
@@ -20,15 +20,18 @@ class Api {
       .catch(console.log)
   }
 
-    // getInitialCards() {
-    //     return fetch(`${this._baseUrl}/cards`, {
-    //         headers: this._headers
-    //     })
-    //     .then(res => res.ok ? res.json() : Promise.reject(res.status))
-    //     .catch(console.log)
-    // }
-  
-    // другие методы работы с API
+    editProfile() {
+      return fetch(`${this._baseUrl}/users/me`, {
+        method: "PATCH",
+        headers: this._headers,
+        body: JSON.stringify({
+          name,
+          about
+        })
+    })
+      .then(res => res.ok ? res.json() : Promise.reject(res.status))
+      .catch(console.log)
+    }
   }
   
   export const api = new Api({

@@ -15,10 +15,12 @@ api.getProfile()
     profileInfo.setUserInfo(res)
   })
 
-api.getProfile()
+api.getInitialCards()
   .then(card => {
     card.forEach(data => {
-      section.addItem()
+      const cardElement = createCard(data);
+    
+      section.addItem(cardElement)
     })
   })
 
@@ -28,6 +30,7 @@ const profilePopupWithForm = new PopupWithForm(
   profilePopup,
   (input) => {
     profileInfo.setUserInfo(input);
+    api.editProfile()
   }
 );
 
@@ -78,7 +81,6 @@ function openPopupImage(name, link) {
 
 
 function createCard(card) {
-  // const cardElement = new Card(card, '#cardTemplate', openImage);
   const cardElement = new Card(card, '#cardTemplate', openPopupImage);
   return cardElement.generateCard();
 };
