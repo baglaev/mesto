@@ -39,11 +39,16 @@ profilePopupWithForm.setEventListeners();
 
 const cardPopupWithForm = new PopupWithForm(
   cardPopup,
-  (input) => {
-    const cardElementForm = createCard(input);
+  (data) => {
+    api.addCard(data.name, data.link)
+    .then(res => {
+      console.log('card', res)
+      const cardElementForm = createCard(data)
+    // })
+    // const cardElementForm = createCard(input);
     section.addItem(cardElementForm);
-  }
-);
+  })
+  });
 
 cardPopupWithForm.setEventListeners();
 
