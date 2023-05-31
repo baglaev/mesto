@@ -1,17 +1,17 @@
 import './index.css';
 
-import { editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, addCardButton, closeCardButton, initialCards, classSelector } from '../utils/constants.js';
+import { editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, deletePopup, addCardButton, closeCardButton, initialCards, classSelector } from '../utils/constants.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js'
 import { UserInfo } from '../components/UserInfo.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
+import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
 import { api } from '../components/Api.js';
 
 api.getProfile()
   .then(res => {
-    console.log('ответ', res)
     profileInfo.setUserInfo(res)
   })
 
@@ -24,7 +24,7 @@ api.getInitialCards()
     })
   })
 
-// потом в константу попап делет сделать
+// // потом в константу попап делет сделать
 // const deleteCardConfirm = new PopupWithForm('.popup-delete', () => {
 //   console.log('delete')
 // });
@@ -49,7 +49,8 @@ const cardPopupWithForm = new PopupWithForm(
   (data) => {
     api.addCard(data.name, data.link, data.likes)
     .then(data => {
-      const cardElementForm = createCard(data)
+      const cardElementForm = createCard(data);
+      // const cardElementForm = createCard({name: res.name, link: res.link, likes: res.likes})
     // })
     // const cardElementForm = createCard(input);
     section.addItem(cardElementForm);
@@ -91,9 +92,17 @@ function openPopupImage(name, link) {
 }
 
 
+// потом в константу попап делет сделать
+const deleteCardConfirm = new PopupWithConfirmation(deletePopup);
+ 
+deleteCardConfirm.setEventListeners();
+
 function createCard(card) {
-  const cardElement = new Card(card, '#cardTemplate', openPopupImage);
-  // const cardElement = new Card(card, '#cardTemplate', openPopupImage, () => {console.log('click delete button')});
+  // const cardElement = new Card(card, '#cardTemplate', openPopupImage);
+  const cardElement = new Card(card, '#cardTemplate', openPopupImage, () => {
+    console.log('delete button click')
+  }  
+  );
   return cardElement.generateCard();
 };
 

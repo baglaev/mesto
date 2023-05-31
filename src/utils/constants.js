@@ -6,6 +6,7 @@ const nameInput = document.querySelector('.popup__input_profile_name');
 const occupationInput = document.querySelector('.popup__input_profile_occupation');
 const popupImage = document.querySelector('.popup-image');
 const cardPopup = document.querySelector('.popup-card');
+const deletePopup = document.querySelector('.popup-delete');
 const addCardButton = document.querySelector('.profile__button-add');
 const closeCardButton = cardPopup.querySelector('.popup__button-close');
 
@@ -46,4 +47,4 @@ const classSelector = {
   errorClassUnderline: 'popup__input_border-underline'
 }
 
-export { editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, addCardButton, closeCardButton, initialCards, classSelector }
+export { editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, deletePopup, addCardButton, closeCardButton, initialCards, classSelector }

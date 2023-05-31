@@ -1,5 +1,5 @@
 export class Card {
-    constructor(data, cardTemplateSelector, openPopup) {
+    constructor(data, cardTemplateSelector, openPopup, deleteCardClick) {
       this._name = data.name;
       this._link = data.link;
       this._likes = data.likes;
@@ -7,7 +7,7 @@ export class Card {
       this.openPopup = openPopup;
       this._element = undefined;
 
-      // this._deleteCardClick = deleteCardClick;
+      this._deleteCardClick = deleteCardClick;
     }
   
     _getTemplate() {
@@ -24,22 +24,22 @@ export class Card {
       this.likeButton.classList.toggle('element__button-like_active');
     }
   
-    _deleteCard() {
-      this._element.remove();
-    }
+    // _deleteCard() {
+    //   this._element.remove();
+    // }
   
     _setEventListeners() {
       this.likeButton.addEventListener('click', () => {
         this._toggleCardLike();
       });
   
-      this.deleteButton.addEventListener('click', () => {
-        this._deleteCard();
-      });
-
       // this.deleteButton.addEventListener('click', () => {
-      //   this._deleteCardClick();
+      //   this._deleteCard();
       // });
+
+      this.deleteButton.addEventListener('click', () => {
+        this._deleteCardClick();
+      });
 
       this.cardPicture.addEventListener('click', () => {
         this.openPopup(this._name, this._link);
@@ -47,7 +47,7 @@ export class Card {
     }
   
     _setLikes() {
-      const likeCounter =  this._element.querySelector('.element__counter-like');
+      const likeCounter =  this._element.querySelector('.element__counter-like')
       likeCounter.textContent = this._likes.length;
     }
 
