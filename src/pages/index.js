@@ -24,6 +24,13 @@ api.getInitialCards()
     })
   })
 
+// потом в константу попап делет сделать
+// const deleteCardConfirm = new PopupWithForm('.popup-delete', () => {
+//   console.log('delete')
+// });
+ 
+// deleteCardConfirm.setEventListeners();
+
 const profileInfo = new UserInfo({userNameSelector: userNameElement, userOccupationSelector: userOccupationElement});
 
 const profilePopupWithForm = new PopupWithForm(
@@ -40,9 +47,8 @@ profilePopupWithForm.setEventListeners();
 const cardPopupWithForm = new PopupWithForm(
   cardPopup,
   (data) => {
-    api.addCard(data.name, data.link)
-    .then(res => {
-      console.log('card', res)
+    api.addCard(data.name, data.link, data.likes)
+    .then(data => {
       const cardElementForm = createCard(data)
     // })
     // const cardElementForm = createCard(input);
@@ -87,6 +93,7 @@ function openPopupImage(name, link) {
 
 function createCard(card) {
   const cardElement = new Card(card, '#cardTemplate', openPopupImage);
+  // const cardElement = new Card(card, '#cardTemplate', openPopupImage, () => {console.log('click delete button')});
   return cardElement.generateCard();
 };
 

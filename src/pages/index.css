@@ -32,6 +32,7 @@
 @import url(../blocks/element/__name/element__name.css);
 @import url(../blocks/element/__button-like/element__button-like.css);
 @import url(../blocks/element/__button-like/_active/element__button-like_active.css);
+@import url(../blocks/element/__counter-like/element__counter-like.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__logo/footer__logo.css);
