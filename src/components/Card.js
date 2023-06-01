@@ -3,6 +3,7 @@ export class Card {
       this._name = data.name;
       this._link = data.link;
       this._likes = data.likes;
+      this._id = data._id;
       this._cardTemplateSelector = cardTemplateSelector;
       this.openPopup = openPopup;
       this._element = undefined;
@@ -27,7 +28,7 @@ export class Card {
     // _deleteCard() {
     //   this._element.remove();
     // }
-  
+
     _setEventListeners() {
       this.likeButton.addEventListener('click', () => {
         this._toggleCardLike();
@@ -38,7 +39,7 @@ export class Card {
       // });
 
       this.deleteButton.addEventListener('click', () => {
-        this._deleteCardClick();
+        this._deleteCardClick(this._id);
       });
 
       this.cardPicture.addEventListener('click', () => {

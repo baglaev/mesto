@@ -43,11 +43,14 @@ const profilePopupWithForm = new PopupWithForm(
 
 profilePopupWithForm.setEventListeners();
 
+// потом в константу попап делет сделать
+const deleteCardConfirm = new PopupWithConfirmation(deletePopup);
+// deleteCardConfirm.setSubmit();
 
 const cardPopupWithForm = new PopupWithForm(
   cardPopup,
   (data) => {
-    api.addCard(data.name, data.link, data.likes)
+    api.addCard(data.name, data.link, data.likes, data._id)
     .then(data => {
       const cardElementForm = createCard(data);
       // const cardElementForm = createCard({name: res.name, link: res.link, likes: res.likes})
@@ -91,17 +94,22 @@ function openPopupImage(name, link) {
   openImage.openPopup(name, link);
 }
 
-
-// потом в константу попап делет сделать
-const deleteCardConfirm = new PopupWithConfirmation(deletePopup);
- 
-deleteCardConfirm.setEventListeners();
-
 function createCard(card) {
   // const cardElement = new Card(card, '#cardTemplate', openPopupImage);
-  const cardElement = new Card(card, '#cardTemplate', openPopupImage, () => {
-    console.log('delete button click')
-  }  
+  const cardElement = new Card(card, '#cardTemplate', openPopupImage, (id) => {
+    // console.log('delete button click');
+    deleteCardConfirm.openPopup();
+    deleteCardConfirm.setSubmit(() => {
+      console.log(id)
+    })
+    // deleteCardConfirm.setSubmit(() => {
+    //   api.deleteCard(card.cardId)
+    //   .then((res) => {
+    //     card.delete(res);
+    //     deleteCardConfirm.closePopup();
+    //   })
+    // })
+  }
   );
   return cardElement.generateCard();
 };
