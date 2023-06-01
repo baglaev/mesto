@@ -25,9 +25,10 @@ export class Card {
       this.likeButton.classList.toggle('element__button-like_active');
     }
   
-    // _deleteCard() {
-    //   this._element.remove();
-    // }
+    deleteCard() {
+      this._element.remove();
+      this._element = null;
+    }
 
     _setEventListeners() {
       this.likeButton.addEventListener('click', () => {

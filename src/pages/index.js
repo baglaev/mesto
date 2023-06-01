@@ -97,22 +97,20 @@ function openPopupImage(name, link) {
 function createCard(card) {
   // const cardElement = new Card(card, '#cardTemplate', openPopupImage);
   const cardElement = new Card(card, '#cardTemplate', openPopupImage, (id) => {
-    // console.log('delete button click');
     deleteCardConfirm.openPopup();
     deleteCardConfirm.setSubmit(() => {
-      console.log(id)
+      api.deleteCard(id)
+      .then(res => {
+        cardElement.deleteCard(res)
+        deleteCardConfirm.closePopup();
+      })
     })
-    // deleteCardConfirm.setSubmit(() => {
-    //   api.deleteCard(card.cardId)
-    //   .then((res) => {
-    //     card.delete(res);
-    //     deleteCardConfirm.closePopup();
-    //   })
-    // })
   }
   );
   return cardElement.generateCard();
 };
+
+deleteCardConfirm.setEventListeners();
 
 const section = new Section({
   items: initialCards,
