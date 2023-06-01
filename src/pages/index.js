@@ -10,9 +10,13 @@ import { PopupWithForm } from '../components/PopupWithForm.js';
 import { PopupWithConfirmation } from '../components/PopupWithConfirmation.js';
 import { api } from '../components/Api.js';
 
+let userId;
+
 api.getProfile()
   .then(res => {
-    profileInfo.setUserInfo(res)
+    profileInfo.setUserInfo(res);
+
+    userId = res._id;
   })
 
 api.getInitialCards()
@@ -50,7 +54,7 @@ const deleteCardConfirm = new PopupWithConfirmation(deletePopup);
 const cardPopupWithForm = new PopupWithForm(
   cardPopup,
   (data) => {
-    api.addCard(data.name, data.link, data.likes, data._id)
+    api.addCard(data.name, data.link, data.likes, data._id, userId, data.ownerId)
     .then(data => {
       const cardElementForm = createCard(data);
       // const cardElementForm = createCard({name: res.name, link: res.link, likes: res.likes})

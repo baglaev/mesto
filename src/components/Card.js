@@ -4,6 +4,9 @@ export class Card {
       this._link = data.link;
       this._likes = data.likes;
       this._id = data._id;
+      this._userId = data.userId;
+      this._ownerId = data.ownerId;
+
       this._cardTemplateSelector = cardTemplateSelector;
       this.openPopup = openPopup;
       this._element = undefined;
@@ -63,6 +66,11 @@ export class Card {
       this.deleteButton= this._element.querySelector('.element__button-delete');
       this._setLikes();
       this._setEventListeners();
+
+      if(this._ownerId !== this._userId) {
+        this.deleteButton.style.display = 'none';
+        // this._element.querySelector('.element__button-delete').style.display = 'none'
+      }
 
       return this._element;
     }
