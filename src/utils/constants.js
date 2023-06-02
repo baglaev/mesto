@@ -2,6 +2,9 @@ const editProfileButton = document.querySelector('.profile__button-edit');
 const profilePopup = document.querySelector('.popup-profile');
 const userNameElement = document.querySelector('.profile__title');
 const userOccupationElement = document.querySelector('.profile__job-title');
+const userAvatarElement = document.querySelector('.profile__image');
+const avatarPopup = document.querySelector('.popup-avatar');
+const avatarButton = document.querySelector('.profile__image-editing');
 const nameInput = document.querySelector('.popup__input_profile_name');
 const occupationInput = document.querySelector('.popup__input_profile_occupation');
 const popupImage = document.querySelector('.popup-image');
@@ -47,4 +50,4 @@ const classSelector = {
   errorClassUnderline: 'popup__input_border-underline'
 }
 
-export { editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, deletePopup, addCardButton, closeCardButton, initialCards, classSelector }
+export { editProfileButton, profilePopup, userNameElement, userOccupationElement, userAvatarElement, avatarPopup, avatarButton, nameInput, occupationInput, popupImage, cardPopup, deletePopup, addCardButton, closeCardButton, initialCards, classSelector }

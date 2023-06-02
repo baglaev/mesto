@@ -1,6 +1,6 @@
 import './index.css';
 
-import { editProfileButton, profilePopup, userNameElement, userOccupationElement, nameInput, occupationInput, popupImage, cardPopup, deletePopup, addCardButton, closeCardButton, initialCards, classSelector } from '../utils/constants.js';
+import { editProfileButton, profilePopup, userNameElement, userOccupationElement, userAvatarElement, avatarPopup, avatarButton, nameInput, occupationInput, popupImage, cardPopup, deletePopup, addCardButton, closeCardButton, initialCards, classSelector } from '../utils/constants.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js'
@@ -12,6 +12,19 @@ import { api } from '../components/Api.js';
 
 let userId;
 
+// Promise.all([api.getProfile(), api.getInitialCards()])
+//   .then(([userInfo, cards]) => {
+//     userId = userInfo._id;
+//     profileInfo.setUserInfo(userInfo);
+//     section.renderItems(cards.reverse());
+//     })
+//  .catch((res) => {
+//     console.log(`Ошибка ${res.status}`)
+//   })
+
+
+
+
 api.getProfile()
   .then(res => {
     profileInfo.setUserInfo(res);
@@ -19,23 +32,26 @@ api.getProfile()
     userId = res._id;
   })
 
+
+
 api.getInitialCards()
   .then(card => {
     card.forEach(data => {
       const cardElement = createCard(data);
-    
+      // const cardElement = createCard({
+      //   name: data.name,
+      //   link: data.link,
+      //   likes: data.likes,
+      //   id: data._id,
+      //   userId: userId,
+      //   ownerId: data.owner._id
+      // });
       section.addItem(cardElement)
     })
   })
 
-// // потом в константу попап делет сделать
-// const deleteCardConfirm = new PopupWithForm('.popup-delete', () => {
-//   console.log('delete')
-// });
- 
-// deleteCardConfirm.setEventListeners();
-
-const profileInfo = new UserInfo({userNameSelector: userNameElement, userOccupationSelector: userOccupationElement});
+// const profileInfo = new UserInfo({userNameSelector: userNameElement, userOccupationSelector: userOccupationElement});
+const profileInfo = new UserInfo({userNameSelector: userNameElement, userOccupationSelector: userOccupationElement, userAvatarSelector: userAvatarElement});
 
 const profilePopupWithForm = new PopupWithForm(
   profilePopup,
@@ -47,30 +63,40 @@ const profilePopupWithForm = new PopupWithForm(
 
 profilePopupWithForm.setEventListeners();
 
-// потом в константу попап делет сделать
 const deleteCardConfirm = new PopupWithConfirmation(deletePopup);
-// deleteCardConfirm.setSubmit();
 
 const cardPopupWithForm = new PopupWithForm(
   cardPopup,
   (data) => {
-    api.addCard(data.name, data.link, data.likes, data._id, userId, data.ownerId)
+    // api.addCard(data.name, data.link, data.likes, data._id, userId, data.ownerId)
+    api.addCard(data.name, data.link)
     .then(data => {
-      const cardElementForm = createCard(data);
-      // const cardElementForm = createCard({name: res.name, link: res.link, likes: res.likes})
-    // })
-    // const cardElementForm = createCard(input);
+      const cardElementForm = createCard(data, userId);
     section.addItem(cardElementForm);
   })
   });
+
+// ----------------
+const avatarPopupWithForm = new PopupWithForm(avatarPopup);
+avatarPopupWithForm.setEventListeners();
+
 
 cardPopupWithForm.setEventListeners();
 
 const profilePopupValidation = new FormValidator(classSelector, profilePopup);
 const cardPopupValidation = new FormValidator(classSelector, cardPopup);
+const avatarPopupValidation = new FormValidator(classSelector, avatarPopup);
 
 profilePopupValidation.enableValidation();
 cardPopupValidation.enableValidation();
+avatarPopupValidation.enableValidation();
+
+
+avatarButton.addEventListener('click', () => {
+  avatarPopupValidation.resetValidation();
+  avatarPopupValidation.disableButton();
+  avatarPopupWithForm.openPopup();
+})
 
 editProfileButton.addEventListener('click', () => {
   const profile = profileInfo.getUserInfo();
@@ -109,7 +135,21 @@ function createCard(card) {
         deleteCardConfirm.closePopup();
       })
     })
-  }
+  },
+  (id) => {
+    api.addLike(id)
+    .then(res => {
+      // console.log(res)
+      cardElement.setLikes(res.likes)
+    })
+
+    api.deleteLike(id)
+    .then(res => {
+      // console.log(res)
+      cardElement.setLikes(res.likes)
+    })
+  },
+  userId
   );
   return cardElement.generateCard();
 };

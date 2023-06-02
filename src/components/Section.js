@@ -11,5 +11,6 @@ export class Section {
 
     addItem(element) {
         this._selector.prepend(element);
+        // this._selector.append(element);
     }
 }
