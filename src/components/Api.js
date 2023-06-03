@@ -1,4 +1,4 @@
-class Api {
+export class Api {
     constructor({ baseUrl, headers}) {
       this._baseUrl = baseUrl;
       this._headers = headers;
@@ -72,12 +72,24 @@ class Api {
         .then(res => res.ok ? res.json() : Promise.reject(res.status))
         .catch(console.log)
       }
+
+      handleAvatar(avatar) {
+        return fetch(`${this._baseUrl}/users/me/avatar`, {
+          method: "PATCH",
+          headers: this._headers,
+          body: JSON.stringify({
+            avatar
+          })
+      })
+        .then(res => res.ok ? res.json() : Promise.reject(res.status))
+        .catch(console.log)
+      }
   }
   
-  export const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
-    headers: {
-      authorization: 'ce3e7b6f-f070-4401-b0f3-689824d2bbf0',
-      'Content-Type': 'application/json'
-    }
-  }); 
+// const api = new Api({
+//     baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
+//     headers: {
+//       authorization: 'ce3e7b6f-f070-4401-b0f3-689824d2bbf0',
+//       'Content-Type': 'application/json'
+//     }
+//   }); 

@@ -21,10 +21,10 @@
                 </div>
                 <div class="profile__biography">
                     <div class="profile__name">
-                        <h1 class="profile__title">Жак-Ив Кусто</h1>
+                        <h1 class="profile__title"></h1>
                         <button class="profile__button-edit" type="button" aria-label="Редактировать"></button>
                     </div>
-                    <p class="profile__job-title">Исследователь океана</p>
+                    <p class="profile__job-title"></p>
                 </div>
             </div>
             <button class="profile__button-add" type="button" aria-label="Добавить"></button>
@@ -43,8 +43,8 @@
                 <!-- <h2 class="popup__title">Редактировать профиль</h2> -->
                 <input type="text" name="name" class="popup__input popup__input_profile_name" placeholder="Имя" minlength="2" maxlength="40" required>
                 <span class="popup__input-error popup__input-error_type_name"></span>
-                <input type="text" name="occupation" class="popup__input popup__input_profile_occupation" placeholder="Должность" minlength="2" maxlength="200" required>
-                <span class="popup__input-error popup__input-error_type_occupation"></span>
+                <input type="text" name="about" class="popup__input popup__input_profile_about" placeholder="Должность" minlength="2" maxlength="200" required>
+                <span class="popup__input-error popup__input-error_type_about"></span>
                 <button type="submit" class="popup__button-save">Сохранить</button>
             </form>
         </div>
@@ -90,8 +90,8 @@
             <h2 class="popup__title">Обновить аватар</h2>
             <form class="popup__form" name="form-edit" novalidate>
                 <div class="popup__field">
-                    <input type="url" name="link" class="popup__input popup__input_image_link" placeholder="Ссылка на картинку" required>
-                    <span class="popup__input-error popup__input-error_type_link"></span>
+                    <input type="url" name="avatar" class="popup__input popup__input_image_avatar" placeholder="Ссылка на картинку" required>
+                    <span class="popup__input-error popup__input-error_type_avatar"></span>
                 </div>
                 <button type="submit" class="popup__button-save">Сохранить</button>
             </form>
