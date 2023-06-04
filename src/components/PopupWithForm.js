@@ -22,18 +22,22 @@ export class PopupWithForm extends Popup {
         return formValues;
     }
 
-    handleLoading() {
-        this._buttonLoading.textContent = 'Сохранение...';
-    }
-
     setEventListeners() {
+        super.setEventListeners();
+
         this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this._handleSubmit(this._getInputValues());
-            this.closePopup();
+            const initialText = this._buttonLoading.textContent;
+            // меняем его, чтобы показать пользователю ожидание
+            this._buttonLoading.textContent = 'Сохранение...';
+            this._handleSubmit(this._getInputValues())
+                .then(() => this.closePopup()) // закрывается попап в `then`
+                .finally(() => {
+                    this._buttonLoading.textContent = initialText;
+                }) // в любом случае меняется текст кнопки обратно на начальный в `finally`
         });
         
-        super.setEventListeners();
+        
     }
 
     closePopup() {

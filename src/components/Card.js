@@ -32,10 +32,6 @@ export class Card {
 
     _removeCardLike() {
       this.likeButton.classList.remove('element__button-like_active');
-      // const userHasLikedCard = this._likes.find(user => user.id === this._userId);
-      //  if(userHasLikedCard) {
-      //    this._toggleCardLike();
-      // }
     }
 
     deleteCard() {
@@ -51,8 +47,7 @@ export class Card {
 
     setLikes(newLikes) {
       this._likes = newLikes;
-      const likeCounter =  this._element.querySelector('.element__counter-like')
-      likeCounter.textContent = this._likes.length;
+      this._likeCounter.textContent = this._likes.length;
 
       if(this.isLiked()) {
         this._addCardLike();
@@ -89,6 +84,7 @@ export class Card {
       this.cardPicture.alt = this._name;
       this._element.querySelector('.element__name').textContent = this._name;
       this.likeButton = this._element.querySelector('.element__button-like');
+      this._likeCounter = this._element.querySelector('.element__counter-like');
       this.deleteButton= this._element.querySelector('.element__button-delete');
       this.setLikes(this._likes);
       this._setEventListeners();
