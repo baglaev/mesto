@@ -4,10 +4,11 @@
 
 ### Обзор
 Данный проект реализован с помощью технологий:
-- HTML;
-- CSS (FlexBox, Grid Layout, адаптивная верстка);
-- JavaScript (Vanilla);
-
+- HTML
+- CSS (FlexBox, Grid Layout, адаптивная верстка)
+- JavaScript (Vanilla)
+- ООП
+- REST API
 
 * [Ссылка на проект] https://baglaev.github.io/mesto/
 
